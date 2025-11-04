@@ -1,5 +1,5 @@
 import handleTickerPick from "@/lib/helpers/handle-ticker-pick";
-import { TickerMetaData } from "@/lib/types/ticker";
+import { TickerMetaData } from "@/lib/types/ticker.t";
 
 const SuggestionItem = ({ suggestion }: { suggestion: TickerMetaData }) => {
   return (

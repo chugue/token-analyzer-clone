@@ -14,7 +14,7 @@ const useDebouncedSearch = (ticker: string, delay: number = 500) => {
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [ticker, delay, setDebouncedTicker, setSearchResults]);
+  }, [ticker]);
 
   return;
 };

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { tickerMetaData } from "../mock-data/ticker-meta-data";
-import { TickerMetaData } from "../types/ticker";
+import { TickerMetaData } from "../types/ticker.t";
 
 interface TickerStore {
   ticker: string;

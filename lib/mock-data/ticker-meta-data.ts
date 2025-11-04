@@ -1,4 +1,4 @@
-import { TickerMetaData } from "../types/ticker";
+import { TickerMetaData } from "../types/ticker.t";
 
 export const tickerMetaData: TickerMetaData[] = [
   {

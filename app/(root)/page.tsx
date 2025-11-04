@@ -14,7 +14,7 @@ import useTickerStore from "@/lib/store/ticker-store";
 import { Search } from "lucide-react";
 
 export default function Home() {
-  const { ticker, setTicker, pickedTicker } = useTickerStore();
+  const { ticker, setTicker, pickedTicker, suggestions } = useTickerStore();
 
   useDebouncedSearch(ticker, 500);
 
@@ -41,10 +41,10 @@ export default function Home() {
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
-            <SuggestionCard />
+            {suggestions.length > 0 && <SuggestionCard />}
           </InputGroup>
-          {pickedTicker && <PickedTickerMeta ticker={pickedTicker} />}
-          <Button className="w-full" disabled={pickedTicker === null}>
+          {pickedTicker && <PickedTickerMeta />}
+          <Button className="w-full" disabled={!pickedTicker}>
             Generate Report
           </Button>
         </CardContent>
