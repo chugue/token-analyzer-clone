@@ -14,9 +14,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center h-screen gap-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold">Token Social Analyzer</h1>
-        <div className="text-lg font-light">
+        <p className="text-lg font-light">
           AI-powered Twitter analysis for crypto tokens
-        </div>
+        </p>
       </div>
       <Card className="flex flex-col w-full max-w-md gap-1 shadow-lg">
         <CardHeader className="text-start">
@@ -24,7 +24,10 @@ export default function Home() {
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           <InputGroup>
-            <InputGroupInput placeholder="BTC, ETH, SOL.. " />
+            <InputGroupInput
+              placeholder="BTC, ETH, SOL.. "
+              className="focus:ring-blue-500 focus:border-blue-500 uppercase"
+            />
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
