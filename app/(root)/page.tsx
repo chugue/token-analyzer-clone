@@ -1,7 +1,7 @@
 "use client";
 
 import PickedTickerMeta from "@/components/root/PickedTickerMeta";
-import SearchResultCard from "@/components/root/SearchResultCard";
+import SuggestionCard from "@/components/root/suggestions/SuggestionCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -9,14 +9,12 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import handleTickerPick from "@/lib/helpers/handle-ticker-pick";
 import useDebouncedSearch from "@/lib/hooks/use-debounced-search";
 import useTickerStore from "@/lib/store/ticker-store";
 import { Search } from "lucide-react";
 
 export default function Home() {
-  const { ticker, setTicker, pickedTicker, debouncedTicker, searchResults } =
-    useTickerStore();
+  const { ticker, setTicker, pickedTicker } = useTickerStore();
 
   useDebouncedSearch(ticker, 500);
 
@@ -43,17 +41,7 @@ export default function Home() {
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
-            {debouncedTicker.length > 0 && !pickedTicker && (
-              <div className="gap-2 absolute top-10 flex flex-col w-full max-h-64 overflow-y-auto bg-white z-10 border border-gray-200 rounded-md shadow-lg">
-                {searchResults.map((result) => (
-                  <SearchResultCard
-                    key={result.sourceId}
-                    ticker={result}
-                    onSelect={() => handleTickerPick(result)}
-                  />
-                ))}
-              </div>
-            )}
+            <SuggestionCard />
           </InputGroup>
           {pickedTicker && <PickedTickerMeta ticker={pickedTicker} />}
           <Button className="w-full" disabled={pickedTicker === null}>

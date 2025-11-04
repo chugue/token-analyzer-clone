@@ -2,8 +2,11 @@ import useTickerStore from "../store/ticker-store";
 import { TickerMetaData } from "../types/ticker";
 
 const handleTickerPick = (pickedTicker: TickerMetaData) => {
-  const { setPickedTicker, setTicker, setSearchResults } =
-    useTickerStore.getState();
+  const {
+    setPickedTicker,
+    setTicker,
+    setSuggestions: setSearchResults,
+  } = useTickerStore.getState();
 
   setPickedTicker(pickedTicker);
   setSearchResults([]);
