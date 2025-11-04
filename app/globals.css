@@ -141,3 +141,9 @@
     transform: translateY(0);
   }
 }
+
+@layer utilities {
+  .flex-row-between {
+    @apply flex flex-row justify-between items-center;
+  }
+}

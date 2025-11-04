@@ -1,0 +1,60 @@
+import { TickerMetaData } from "../types/ticker";
+
+export const tickerSearchResultMockData: TickerMetaData[] = [
+  {
+    source: "coingecko",
+    sourceId: 1,
+    ticker: "BTC",
+    rank: 1,
+    name: "Bitcoin",
+    slug: "bitcoin",
+  },
+  {
+    source: "coingecko",
+    sourceId: 1027,
+    ticker: "ETH",
+    rank: 2,
+    name: "Ethereum",
+    slug: "ethereum",
+  },
+  {
+    source: "coingecko",
+    sourceId: 825,
+    ticker: "USDT",
+    rank: 3,
+    name: "Tether",
+    slug: "tether",
+  },
+  {
+    source: "coingecko",
+    sourceId: 1839,
+    ticker: "BNB",
+    rank: 4,
+    name: "BNB",
+    slug: "bnb",
+  },
+  {
+    source: "coingecko",
+    sourceId: 5426,
+    ticker: "SOL",
+    rank: 5,
+    name: "Solana",
+    slug: "solana",
+  },
+  {
+    source: "coingecko",
+    sourceId: 52,
+    ticker: "XRP",
+    rank: 6,
+    name: "XRP",
+    slug: "xrp",
+  },
+  {
+    source: "coingecko",
+    sourceId: 3408,
+    ticker: "USDC",
+    rank: 7,
+    name: "USD Coin",
+    slug: "usd-coin",
+  },
+];
