@@ -7,11 +7,16 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import useDebounced from "@/lib/hooks/use-debounced";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [ticker, setTicker] = useState("");
+  const debouncedTicker = useDebounced(ticker, 500);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-6">
+    <div className="flex flex-col items-center justify-center h-screen gap-6 ">
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold">Token Social Analyzer</h1>
         <p className="text-lg font-light">
@@ -26,11 +31,18 @@ export default function Home() {
           <InputGroup>
             <InputGroupInput
               placeholder="BTC, ETH, SOL.. "
-              className="focus:ring-blue-500 focus:border-blue-500 uppercase"
+              className="focus:ring-blue-500 focus:border-blue-500 uppercase relative"
+              value={ticker}
+              onChange={(e) => setTicker(e.target.value)}
             />
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
+            {debouncedTicker.length > 0 && (
+              <div className="absolute top-10 w-full max-h-96 overflow-y-auto bg-white z-10 border border-gray-200 rounded-md p-2 shadow-lg">
+                Result
+              </div>
+            )}
           </InputGroup>
           <Button className="w-full" disabled={true}>
             Generate Report
