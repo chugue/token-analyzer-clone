@@ -9,16 +9,16 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import useDebouncedSearch from "@/lib/hooks/use-debounced";
-import { TickerMetaData } from "@/lib/types/ticker";
+import handleTickerPick from "@/lib/helpers/handle-ticker-pick";
+import useDebouncedSearch from "@/lib/hooks/use-debounced-search";
+import useTickerStore from "@/lib/store/ticker-store";
 import { Search } from "lucide-react";
-import { useState } from "react";
 
 export default function Home() {
-  const [ticker, setTicker] = useState("");
-  const [pickedTicker, setPickedTicker] = useState<TickerMetaData | null>(null);
-  const { debouncedTicker, searchResults, setSearchResults } =
-    useDebouncedSearch(ticker, 500);
+  const { ticker, setTicker, pickedTicker, debouncedTicker, searchResults } =
+    useTickerStore();
+
+  useDebouncedSearch(ticker, 500);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-6 ">
@@ -49,18 +49,14 @@ export default function Home() {
                   <SearchResultCard
                     key={result.sourceId}
                     ticker={result}
-                    onSelect={() => {
-                      setPickedTicker(result);
-                      setSearchResults([]);
-                      setTicker(result.ticker);
-                    }}
+                    onSelect={() => handleTickerPick(result)}
                   />
                 ))}
               </div>
             )}
           </InputGroup>
           {pickedTicker && <PickedTickerMeta ticker={pickedTicker} />}
-          <Button className="w-full" disabled={true}>
+          <Button className="w-full" disabled={pickedTicker === null}>
             Generate Report
           </Button>
         </CardContent>
