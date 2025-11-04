@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
+import { tickerSearchResultMockData } from "../mock-data/ticker-meta-data";
+import { TickerMetaData } from "../types/ticker";
 
-const useDebounced = (ticker: string, delay: number) => {
+const useDebouncedSearch = (ticker: string, delay: number = 500) => {
   const [debouncedTicker, setDebouncedTicker] = useState("");
+  const [searchResults, setSearchResults] = useState<TickerMetaData[]>([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedTicker(ticker);
+      setSearchResults(tickerSearchResultMockData);
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [ticker]);
+  }, [ticker, delay]);
 
-  return debouncedTicker;
+  return { debouncedTicker, searchResults, setSearchResults };
 };
 
-export default useDebounced;
+export default useDebouncedSearch;
