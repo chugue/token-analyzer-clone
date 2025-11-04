@@ -1,6 +1,6 @@
 import { TickerMetaData } from "../types/ticker";
 
-export const tickerSearchResultMockData: TickerMetaData[] = [
+export const tickerMetaData: TickerMetaData[] = [
   {
     source: "coingecko",
     sourceId: 1,
