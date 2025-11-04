@@ -1,5 +1,6 @@
 "use client";
 
+import SearchResultCard from "@/components/root/SearchResultCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -31,7 +32,7 @@ export default function Home() {
           <InputGroup>
             <InputGroupInput
               placeholder="BTC, ETH, SOL.. "
-              className="focus:ring-blue-500 focus:border-blue-500 uppercase relative"
+              className="focus:ring-blue-500 focus:border-blue-500 uppercase relative "
               value={ticker}
               onChange={(e) => setTicker(e.target.value)}
             />
@@ -39,8 +40,10 @@ export default function Home() {
               <Search />
             </InputGroupAddon>
             {debouncedTicker.length > 0 && (
-              <div className="absolute top-10 w-full max-h-96 overflow-y-auto bg-white z-10 border border-gray-200 rounded-md p-2 shadow-lg">
-                Result
+              <div className="gap-2 absolute top-10 flex flex-col w-full max-h-64 overflow-y-auto bg-white z-10 border border-gray-200 rounded-md shadow-lg">
+                <SearchResultCard />
+                <SearchResultCard />
+                <SearchResultCard />
               </div>
             )}
           </InputGroup>
