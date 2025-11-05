@@ -41,7 +41,7 @@ export default function Home() {
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
-            {suggestions.length > 0 && <SuggestionCard />}
+            <SuggestionCard />
           </InputGroup>
           {pickedTicker && <PickedTickerMeta />}
           <Button className="w-full" disabled={!pickedTicker}>

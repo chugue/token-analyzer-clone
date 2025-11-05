@@ -20,7 +20,7 @@ const SuggestionCard = () => {
           {isSuggesting ? (
             <LoadingDots />
           ) : suggestionError ? (
-            <SuggestionError error={suggestionError} />
+            <SuggestionError errorMessage={suggestionError} />
           ) : suggestions.length === 0 ? (
             <SuggestionNoResults />
           ) : (

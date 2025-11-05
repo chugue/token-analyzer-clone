@@ -44,6 +44,14 @@ export async function searchCoingeckoCoins(
     );
 
   const sortedCandidates = sortCandidates(candidates, query).slice(0, 10);
+
+  cache.set(normalizedQuery, {
+    fetchedAt: Date.now(),
+    query,
+    results: sortedCandidates,
+  });
+
+  return sortedCandidates;
 }
 
 function normalizeQuery(query: string): string {
@@ -99,7 +107,7 @@ function toCoingeckoSearchCandidate(
   };
 }
 
-function sortCandidate(
+function sortCandidates(
   results: CoingeckoSearchCandidate[],
   query: string
 ): CoingeckoSearchCandidate[] {
@@ -126,6 +134,7 @@ function sortCandidate(
 
       if (exactName) score += 3;
       else if (startsWithName) score += 1;
+
       return { candidate, score, rankScore };
     })
     .sort((a, b) => {
