@@ -59,7 +59,6 @@ const useDebouncedSearch = (ticker: string, delay: number = 500) => {
           ? payload.data
           : [];
 
-        console.log("payload items", items);
         setSuggestions(items);
         setHasSuggestions(items.length > 0);
       } catch (error: unknown) {

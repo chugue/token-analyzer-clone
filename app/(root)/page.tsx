@@ -14,7 +14,7 @@ import useTickerStore from "@/lib/store/ticker-store";
 import { Search } from "lucide-react";
 
 export default function Home() {
-  const { ticker, setTicker, pickedTicker, suggestions } = useTickerStore();
+  const { ticker, setTicker, pickedTicker } = useTickerStore();
 
   useDebouncedSearch(ticker, 500);
 
