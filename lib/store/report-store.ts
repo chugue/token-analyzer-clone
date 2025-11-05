@@ -1,7 +1,25 @@
+import { create } from "zustand";
 import { DetailedReport } from "../types/report.t";
 
 interface ReportStore {
   report: DetailedReport | null;
   isReportLoading: boolean;
-  hasReportError: string | null;
+  reportError: string | null;
+
+  setReport: (report: DetailedReport) => void;
+  setIsReportLoading: (isLoading: boolean) => void;
+  setReportError: (error: string | null) => void;
 }
+
+const useReportStore = create<ReportStore>((set) => ({
+  report: null,
+  isReportLoading: false,
+  reportError: null,
+
+  setReport: (report: DetailedReport) => set({ report }),
+  setIsReportLoading: (isLoading: boolean) =>
+    set({ isReportLoading: isLoading }),
+  setReportError: (error: string | null) => set({ reportError: error }),
+}));
+
+export default useReportStore;
