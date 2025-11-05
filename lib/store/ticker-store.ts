@@ -1,6 +1,5 @@
 import { create } from "zustand";
-import { tickerMetaData } from "../mock-data/ticker-meta-data";
-import { TickerMetaData } from "../types/ticker";
+import { TickerMetaData } from "../types/ticker.t";
 
 interface TickerStore {
   ticker: string;
@@ -8,9 +7,12 @@ interface TickerStore {
   suggestions: TickerMetaData[];
   debouncedTicker: string;
   isSuggesting: boolean;
-  suggestionError: Error | null;
-  setSuggestionError: (error: Error | null) => void;
+  hasSuggestions: boolean;
+  suggestionError: string;
+
+  setSuggestionError: (suggestionError: string) => void;
   setIsSuggesting: (isSuggesting: boolean) => void;
+  setHasSuggestions: (hasSuggestions: boolean) => void;
   setDebouncedTicker: (debouncedTicker: string) => void;
   setSuggestions: (suggestions: TickerMetaData[]) => void;
   setPickedTicker: (ticker: TickerMetaData) => void;
@@ -21,12 +23,15 @@ const useTickerStore = create<TickerStore>((set) => ({
   ticker: "",
   pickedTicker: null,
   // TODO: API 구현되면 바꿔야 됨
-  suggestions: tickerMetaData,
+  suggestions: [],
   debouncedTicker: "",
   isSuggesting: false,
-  suggestionError: null,
-  setSuggestionError: (error: Error | null) => set({ suggestionError: error }),
+  suggestionError: "",
+  hasSuggestions: false,
+
+  setSuggestionError: (suggestionError: string) => set({ suggestionError }),
   setIsSuggesting: (isSuggesting: boolean) => set({ isSuggesting }),
+  setHasSuggestions: (hasSuggestions: boolean) => set({ hasSuggestions }),
   setDebouncedTicker: (debouncedTicker: string) => set({ debouncedTicker }),
   setSuggestions: (searchResults: TickerMetaData[]) =>
     set({ suggestions: searchResults }),

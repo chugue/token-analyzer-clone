@@ -1,5 +1,7 @@
+export type TickerSource = "coingecko" | "coinmarketcap";
+
 export interface TickerMetaData {
-  source: "coingecko";
+  source: TickerSource;
   sourceId: number;
   ticker: string;
   rank: number;

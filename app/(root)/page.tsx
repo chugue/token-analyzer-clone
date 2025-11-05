@@ -43,8 +43,8 @@ export default function Home() {
             </InputGroupAddon>
             <SuggestionCard />
           </InputGroup>
-          {pickedTicker && <PickedTickerMeta ticker={pickedTicker} />}
-          <Button className="w-full" disabled={pickedTicker === null}>
+          {pickedTicker && <PickedTickerMeta />}
+          <Button className="w-full" disabled={!pickedTicker}>
             Generate Report
           </Button>
         </CardContent>

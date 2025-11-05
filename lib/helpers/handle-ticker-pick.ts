@@ -1,5 +1,5 @@
 import useTickerStore from "../store/ticker-store";
-import { TickerMetaData } from "../types/ticker";
+import { TickerMetaData } from "../types/ticker.t";
 
 const handleTickerPick = (pickedTicker: TickerMetaData) => {
   const {
