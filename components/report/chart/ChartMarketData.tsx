@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import ChartTooltip from "./ChartTooltip";
 
-const ChartMarket = ({ report }: { report: DetailedReport }) => {
+const ChartMarketData = ({ report }: { report: DetailedReport }) => {
   const { marketData, setMarketData } = useReportStore();
 
   const hasChart = marketData.length >= 2;
@@ -60,6 +60,12 @@ const ChartMarket = ({ report }: { report: DetailedReport }) => {
     return [min - padding, max + padding];
   }, [marketData]);
 
+  const timeTickFormatter = (value: number) => {
+    if (!latestChartTimestamp) return "";
+    const diff = Math.round((latestChartTimestamp - value) / dayMs);
+    return diff === 0 ? "오늘" : `${diff}일전`;
+  };
+
   useEffect(() => {
     let active = true;
     const slug = report.resolvedMeta?.coingeckoId ?? report.meta.slug;
@@ -74,7 +80,6 @@ const ChartMarket = ({ report }: { report: DetailedReport }) => {
         if (!res.ok) return;
 
         const json = await res.json();
-        console.log(`🔍 마켓 데이터 응답: ${slug}`, json.data);
         const pts = Array.isArray(json?.data?.points) ? json.data.points : [];
         const mapped = pts.map((p: { t: number; c: number; v?: number }) => ({
           time: p.t,
@@ -144,6 +149,9 @@ const ChartMarket = ({ report }: { report: DetailedReport }) => {
                   type="number"
                   domain={["dataMin", "dataMax"]}
                   ticks={fixedAxisTicks.length ? fixedAxisTicks : undefined}
+                  tickFormatter={timeTickFormatter}
+                  stroke="#94a3b8"
+                  tick={{ fontSize: 12 }}
                 />
                 <YAxis yAxisId="volume" domain={volumeDomain} hide />
                 <YAxis
@@ -192,4 +200,4 @@ const ChartMarket = ({ report }: { report: DetailedReport }) => {
   );
 };
 
-export default ChartMarket;
+export default ChartMarketData;
