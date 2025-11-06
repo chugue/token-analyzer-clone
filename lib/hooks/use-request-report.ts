@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { requestReport } from "../helpers/report-helpers";
+import { requestReport } from "../helpers/report-helpers.client";
 import useReportStore from "../store/report-store";
 
-const useRequestReport = ({ reportId }: { reportId: string }) => {
+const useRequestReport = (reportId: string | undefined) => {
   const { report, setReport, setIsReportLoading, setReportError } =
     useReportStore();
 
@@ -10,26 +10,39 @@ const useRequestReport = ({ reportId }: { reportId: string }) => {
     if (!reportId) {
       setReportError("Report ID is required");
       setIsReportLoading(false);
-      setReport(null);
+      // setReport(null);
       return;
     }
 
-    const cancelled = false;
+    let cancelled = false;
 
     const fetchReport = async () => {
-      setReport(report ? { ...report } : null);
+      setReport(report ?? null);
       setIsReportLoading(true);
       setReportError(null);
 
       try {
         const data = await requestReport(reportId);
-        if (!cancelled) {
-        }
+        if (cancelled) return;
+
+        setReport(data);
+        setIsReportLoading(false);
+        setReportError(null);
       } catch (error) {
-        console.log(error);
+        if (cancelled) return;
+
+        setReportError((error as Error).message);
+        setIsReportLoading(false);
+        setReport(null);
       }
     };
-  });
+
+    fetchReport();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [reportId]);
 
   return;
 };

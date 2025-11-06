@@ -23,10 +23,11 @@ const ReportNoResults = () => {
           {/* 텍스트 */}
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">
-              리포트를 생성하지 못했습니다.
+              리포트 데이터를 찾을 수 없습니다.
             </h2>
             <p className="text-slate-400 leading-relaxed">
-              아직 분석된 리포트가 없습니다.
+              현재 이 토큰에 대한 충분한 토픽과 트윗 데이터를 확보하지
+              못했습니다.
               <br />
               홈으로 돌아가 토큰 분석을 다시 시작해보세요.
             </p>

@@ -1,4 +1,3 @@
-import { redis } from "../redis";
 import {
   DetailedReport,
   TopicDetail,
@@ -67,29 +66,16 @@ export async function requestReport(reportId: string): Promise<DetailedReport> {
   const response = await fetch(`/api/reports/${reportId}`, {
     cache: "no-store",
   });
-}
 
-export async function getReportData(
-  reportId: string
-): Promise<DetailedReport | null> {
-  const key = cacheKeys.report(reportId);
-  const data = await redis.get(key);
-
-  if (!data) return null;
-
-  if (typeof data === "object") {
-    console.log(`✅ Redis에서 파싱된 객체 반환: ${key}`);
-    return data as DetailedReport;
+  if (!response.ok) {
+    const payload = await response.json().catch(() => {});
+    throw new Error(payload.message || `HTTP ${response.status}`);
   }
 
-  try {
-    console.log(`🔧 문자열 데이터 파싱 시도: ${key}`);
-    return JSON.parse(data as string);
-  } catch (error) {
-    console.warn(`❌ Redis 리포트 데이터 파싱 실패 (${key}):`, error);
-    console.warn("데이터 타입:", typeof data);
-    console.warn("데이터 샘플:", String(data).substring(0, 100));
-    await redis.del(key);
-    return null;
+  const result = await response.json();
+  if (!result.success) {
+    throw new Error(result.message || "Failed to fetch report data");
   }
+
+  return result.data as DetailedReport;
 }

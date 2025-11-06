@@ -1,4 +1,4 @@
-import { getReportData } from "@/lib/helpers/report-helpers";
+import { getReportData } from "@/lib/helpers/report-helpers.server";
 import { DetailedReport } from "@/lib/types/report.t";
 import { Result } from "@/lib/types/result";
 import { NextRequest, NextResponse } from "next/server";

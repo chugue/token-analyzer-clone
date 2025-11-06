@@ -2,12 +2,13 @@ import { useMemo } from "react";
 import {
   deriveTimelineFromTopics,
   sortTopics,
-} from "../helpers/report-helpers";
+} from "../helpers/report-helpers.client";
 import { DetailedReport } from "../types/report.t";
 
 const useMemoReportData = (report: DetailedReport | null) => {
   const timeline = useMemo(() => {
     if (!report) return [];
+
     if (
       Array.isArray(report.topicsTimeline) &&
       report.topicsTimeline.length > 0
