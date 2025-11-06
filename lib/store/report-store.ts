@@ -17,7 +17,7 @@ interface ReportStore {
 }
 
 const useReportStore = create<ReportStore>((set) => ({
-  report: reportMockData as unknown as DetailedReport,
+  report: reportMockData as DetailedReport,
   isReportLoading: false,
   reportError: null,
   marketData: [],

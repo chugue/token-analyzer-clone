@@ -30,7 +30,6 @@ const useRequestReport = (reportId: string | undefined) => {
         setReportError(null);
       } catch (error) {
         if (cancelled) return;
-
         setReportError((error as Error).message);
         setIsReportLoading(false);
         setReport(null);

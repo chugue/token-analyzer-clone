@@ -28,3 +28,6 @@ export function formatPriceShort(v?: number) {
   const digits = abs >= 100 ? 2 : abs >= 1 ? 3 : 6;
   return v.toLocaleString("en-US", { maximumFractionDigits: digits });
 }
+
+export const priceTickFormatter = (value: number) =>
+  value.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
