@@ -16,6 +16,9 @@ const ReportDetailPage = () => {
   const { timeline, sortedTopics } = useMemoReportData(report);
   useRequestReport(reportId);
 
+  // TODO: 이거 나중에 삭제해야함
+  const reportData = reportMockData as unknown as DetailedReport;
+
   return (
     <main
       className="min-h-screen bg-[#0f172a] text-slate-100"
@@ -33,9 +36,7 @@ const ReportDetailPage = () => {
       ) : ( */}
       <div className="bg-blue-500 max-w-6xl mx-auto min-h-screen py-10 px-4">
         <div className="grid grid-cols-[2fr,1fr] gap-6">
-          <ReportHeroHeader
-            report={report ?? (reportMockData as unknown as DetailedReport)}
-          />
+          <ReportHeroHeader report={reportData} />
           <div></div>
         </div>
       </div>
