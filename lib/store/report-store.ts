@@ -6,7 +6,7 @@ interface ReportStore {
   isReportLoading: boolean;
   reportError: string | null;
 
-  setReport: (report: DetailedReport) => void;
+  setReport: (report: DetailedReport | null) => void;
   setIsReportLoading: (isLoading: boolean) => void;
   setReportError: (error: string | null) => void;
 }
@@ -16,7 +16,7 @@ const useReportStore = create<ReportStore>((set) => ({
   isReportLoading: false,
   reportError: null,
 
-  setReport: (report: DetailedReport) => set({ report }),
+  setReport: (report: DetailedReport | null) => set({ report }),
   setIsReportLoading: (isLoading: boolean) =>
     set({ isReportLoading: isLoading }),
   setReportError: (error: string | null) => set({ reportError: error }),

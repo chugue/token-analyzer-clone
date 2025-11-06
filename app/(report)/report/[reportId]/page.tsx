@@ -4,6 +4,7 @@ import ReportError from "@/components/report/ReportError";
 import ReportHeroHeader from "@/components/report/ReportHeroHeader";
 import ReportLoading from "@/components/report/ReportLoading";
 import ReportNoResults from "@/components/report/ReportNoResults";
+import useMemoReportData from "@/lib/hooks/use-memoised-report";
 import useReportStore from "@/lib/store/report-store";
 import { useParams } from "next/navigation";
 
@@ -12,6 +13,7 @@ const ReportDetailPage = () => {
   const reportId = params?.reportId as string | undefined;
 
   const { report, isReportLoading, reportError } = useReportStore();
+  const { timeline, sortedTopics } = useMemoReportData(report);
 
   return (
     <main
