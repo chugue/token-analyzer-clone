@@ -1,4 +1,4 @@
-export type ApiResult<T> =
+export type Result<T> =
   | {
       success: true;
       data: T;
