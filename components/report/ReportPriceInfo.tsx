@@ -7,12 +7,10 @@ const ReportPriceInfo = ({ report }: { report: DetailedReport }) => {
   const price = report.metrics.price ?? {};
   const { marketData } = useReportStore();
 
-  const chartData = marketData;
-
   const latestPrice = useMemo(() => {
-    if (chartData.length) return chartData[chartData.length - 1].price;
+    if (marketData.length) return marketData[marketData.length - 1].price;
     return typeof price.latest === "number" ? price.latest : undefined;
-  }, [chartData, price.latest]);
+  }, [marketData, price.latest]);
 
   return (
     <div className="text-sm text-slate-400">

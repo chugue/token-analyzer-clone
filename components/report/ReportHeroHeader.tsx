@@ -1,13 +1,11 @@
 import { reportMockData } from "@/lib/mock-data/report-mock-data";
 import { DetailedReport } from "@/lib/types/report.t";
+import ReportChangeMetrics from "./ReportChangeMetrics";
 import ReportPriceInfo from "./ReportPriceInfo";
 import ReportTooltipButton from "./ReportTooltipButton";
+import ChartMarket from "./chart/ChartMarket";
 
 const HeroHeader = ({ report }: { report: DetailedReport }) => {
-  report = report ?? (reportMockData as unknown as DetailedReport);
-
-  const price = report.metrics.price ?? {};
-
   return (
     <section
       id="hero"
@@ -24,6 +22,8 @@ const HeroHeader = ({ report }: { report: DetailedReport }) => {
         </div>
         <ReportPriceInfo report={report} />
       </div>
+      <ReportChangeMetrics report={report} />
+      <ChartMarket report={report} />
     </section>
   );
 };

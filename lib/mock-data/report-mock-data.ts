@@ -1,4 +1,6 @@
-export const reportMockData = {
+import { DetailedReport } from "../types/report.t";
+
+export const reportMockData: DetailedReport = {
   reportId: "btc-20251106-191",
   createdAt: "2025-11-06T04:23:04.390Z",
   metrics: {
@@ -53,8 +55,25 @@ export const reportMockData = {
       label: "긍정",
       analysis:
         "규제 단계를 넘어 정부 차원에서 직접 BTC 채굴에 참여하는 새로운 트렌드가 등장. 국가 주도의 비트코인 채굴이 크립토 시장의 새로운 패러다임으로 부상하고 있음.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: [],
+        people: ["Coin Bureau"],
+        tokens: ["BTC", "Bitcoin"],
+      },
+      sourceTweets: [
+        {
+          id: "1986279095987282008",
+          text: "🚨NEW TREND: Governments are jumping into #Bitcoin mining. Nations are no longer just regulating crypto — they’re mining $BTC. https://t.co/BIC36ns6Tx",
+          author: "Coin Bureau (@coinbureau)",
+          influence: 114,
+          url: "https://twitter.com/i/status/1986279095987282008",
+          createdAt: "2025-11-06T03:46:54.000Z",
+          retweetCount: 20,
+          likeCount: 129,
+          quoteCount: 4,
+          replyCount: 52,
+        },
+      ],
     },
     {
       title: "BTC 가격 하락에도 대규모 매집 지속",
@@ -64,8 +83,25 @@ export const reportMockData = {
       label: "긍정",
       analysis:
         "비트코인 가격이 하락하고 횡보하는 상황에서도 대량의 BTC가 거래소에서 인출되고 있으며, 2024년부터 지속적인 누적 매수세가 관찰됨. 가격 하락과 반대되는 온체인 흐름 확인.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: [],
+        people: ["Crypto Seth"],
+        tokens: ["BTC", "Bitcoin"],
+      },
+      sourceTweets: [
+        {
+          id: "1986246690366743010",
+          text: "💥 DESPITE THE BTC DUMP AND GOING SIDEWAYS, MASSIVE AMOUNT OF BITCOIN IS BOUGHT AND MOVED OFF THE EXCHANGES.\n\n#BITCOIN IS BEING ACCUMULATED SINCE 2024 UNTIL NOW. https://t.co/89rH9Xfowc",
+          author: "Crypto Seth (@seth_fin)",
+          influence: 61,
+          url: "https://twitter.com/i/status/1986246690366743010",
+          createdAt: "2025-11-06T01:38:08.000Z",
+          retweetCount: 12,
+          likeCount: 98,
+          quoteCount: 1,
+          replyCount: 6,
+        },
+      ],
     },
     {
       title: "일본 Metaplanet, 1억달러 BTC 담보 신용한도 활용",
@@ -75,8 +111,25 @@ export const reportMockData = {
       label: "Metaplanet",
       analysis:
         "일본 최대 기업 비트코인 보유자 Metaplanet이 5억달러 규모의 BTC 담보 신용한도 중 1억달러를 인출하여 활용. 전체 한도의 3%만 사용한 상태로 추가 활용 여력 보유.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: ["Metaplanet"],
+        people: ["Crypto Patel"],
+        tokens: ["BTC", "Bitcoin"],
+      },
+      sourceTweets: [
+        {
+          id: "1986274843575070881",
+          text: "🇯🇵 Metaplanet doubles down on Bitcoin\n\nJapan’s largest corporate #BTC holder has drawn $100M from its $500M BTC-backed credit line, using only 3% of its 30,823 BTC treasury as collateral, to buy more Bitcoin.\n\n▪️Treasury: 30,823 BTC (~$3.33B)\n▪️Avg entry: $107,911\n▪️Unrealized https://t.co/69Bi4nS9Sp",
+          author: "Crypto Patel (@CryptoPatel)",
+          influence: 58,
+          url: "https://twitter.com/i/status/1986274843575070881",
+          createdAt: "2025-11-06T03:30:00.000Z",
+          retweetCount: 14,
+          likeCount: 100,
+          quoteCount: 0,
+          replyCount: 0,
+        },
+      ],
     },
     {
       title: "RWA 통합으로 BTC 수익률 135% 달성 가능성",
@@ -86,8 +139,25 @@ export const reportMockData = {
       label: "LayerBankFi",
       analysis:
         "LayerBankFi가 mBTC와 같은 실물자산(RWA)을 통합하여 최대 135%의 수익률 생성 가능. 기관 투자자들의 비트코인 접근 방식에 변화를 가져올 수 있는 새로운 수익 모델 제시.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: ["LayerBankFi"],
+        people: ["GinKing", "@LayerBankFi"],
+        tokens: ["BTC", "mBTC"],
+      },
+      sourceTweets: [
+        {
+          id: "1986251843257966860",
+          text: "Do you think @LayerBankFi integration of RWAs like mBTC to generate yields of up to 135% could change the way institutional investors approach Bitcoin?\n\nI think if this yield is extended to other real-world assets beyond BTC, it will be revolutionary for Defi\n\n• LayerBankFi has https://t.co/4XHLxTsYUY",
+          author: "GinKing (@PTGinKing)",
+          influence: 48,
+          url: "https://twitter.com/i/status/1986251843257966860",
+          createdAt: "2025-11-06T01:58:36.000Z",
+          retweetCount: 12,
+          likeCount: 40,
+          quoteCount: 0,
+          replyCount: 28,
+        },
+      ],
     },
     {
       title: "비트코인 생태계 확장의 핵심은 연결성",
@@ -97,8 +167,25 @@ export const reportMockData = {
       label: "중립",
       analysis:
         "BTC의 가장 큰 발전 기회는 추가 브릿지나 래핑 토큰이 아닌 네트워크 간 연결성. 비트코인을 이동시키지 않고도 활용할 수 있는 인프라 구축이 핵심 과제로 부상.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: [],
+        people: ["Mr. X | Wallchain", "@beyond__tech"],
+        tokens: ["Bitcoin"],
+      },
+      sourceTweets: [
+        {
+          id: "1986248927419711489",
+          text: "The biggest unlock for Bitcoin right now isn’t another bridge or wrapped token.\n\nIt’s connection.\n\n@beyond__tech isn’t asking Bitcoin to move, it’s wiring the rest of crypto to it.\n\nWhen I use Beyond, I don’t think in chains anymore.\nI think in outcomes.\n“Send from BTC to https://t.co/3wlITe0SmC",
+          author: "Mr. X | Wallchain (@0xMrXXX)",
+          influence: 46,
+          url: "https://twitter.com/i/status/1986248927419711489",
+          createdAt: "2025-11-06T01:47:01.000Z",
+          retweetCount: 2,
+          likeCount: 43,
+          quoteCount: 0,
+          replyCount: 35,
+        },
+      ],
     },
     {
       title: "SatLayer TVL 1,366 BTC 달성, UniBTC 61.6% 점유",
@@ -108,15 +195,48 @@ export const reportMockData = {
       label: "SatLayer",
       analysis:
         "SatLayer의 총 예치 자산(TVL)이 1,366 BTC에 도달. Base와 BOB 체인에서 UniBTC가 전체 LST 분배의 61.6%를 차지하며 지배적 지위 확보.",
-      entities: [Object],
-      sourceTweets: [Array],
+      entities: {
+        protocols: ["SatLayer", "Base", "BOB"],
+        people: ["Chanimal", "@satlayer", "@SolvProtocol"],
+        tokens: ["BTC", "UniBTC"],
+      },
+      sourceTweets: [
+        {
+          id: "1986251012647117201",
+          text: "The @satlayer TVL is at 1366 BTC with LST distribution of UniBTC at 61.6 % of the total across Base &amp; @build_on_bob chain.   The @SolvProtocol SolvBTC.Bera on bera chain have 19.6 %.  Finally Bitlayer  YBTC.B is at 18.3 with others only 0.4 %\n\nDigging into others I was very https://t.co/YfKQR8ODkS",
+          author: "Chanimal 🍌 $APE 🦍 Noya (@JaysonCrypto)",
+          influence: 36,
+          url: "https://twitter.com/i/status/1986251012647117201",
+          createdAt: "2025-11-06T01:55:18.000Z",
+          retweetCount: 15,
+          likeCount: 29,
+          quoteCount: 0,
+          replyCount: 11,
+        },
+      ],
     },
   ],
   keywords: [
-    { keyword: "BTC", count: 5, influence: 317 },
-    { keyword: "Bitcoin", count: 4, influence: 279 },
-    { keyword: "mBTC", count: 1, influence: 48 },
-    { keyword: "UniBTC", count: 1, influence: 36 },
+    {
+      keyword: "BTC",
+      count: 5,
+      influence: 317,
+    },
+    {
+      keyword: "Bitcoin",
+      count: 4,
+      influence: 279,
+    },
+    {
+      keyword: "mBTC",
+      count: 1,
+      influence: 48,
+    },
+    {
+      keyword: "UniBTC",
+      count: 1,
+      influence: 36,
+    },
   ],
   sourceTweets: [
     {
@@ -133,10 +253,7 @@ export const reportMockData = {
     },
     {
       id: "1986246690366743010",
-      text:
-        "💥 DESPITE THE BTC DUMP AND GOING SIDEWAYS, MASSIVE AMOUNT OF BITCOIN IS BOUGHT AND MOVED OFF THE EXCHANGES.\n" +
-        "\n" +
-        "#BITCOIN IS BEING ACCUMULATED SINCE 2024 UNTIL NOW. https://t.co/89rH9Xfowc",
+      text: "💥 DESPITE THE BTC DUMP AND GOING SIDEWAYS, MASSIVE AMOUNT OF BITCOIN IS BOUGHT AND MOVED OFF THE EXCHANGES.\n\n#BITCOIN IS BEING ACCUMULATED SINCE 2024 UNTIL NOW. https://t.co/89rH9Xfowc",
       author: "Crypto Seth (@seth_fin)",
       influence: 61,
       url: "https://twitter.com/i/status/1986246690366743010",
@@ -148,14 +265,7 @@ export const reportMockData = {
     },
     {
       id: "1986274843575070881",
-      text:
-        "🇯🇵 Metaplanet doubles down on Bitcoin\n" +
-        "\n" +
-        "Japan’s largest corporate #BTC holder has drawn $100M from its $500M BTC-backed credit line, using only 3% of its 30,823 BTC treasury as collateral, to buy more Bitcoin.\n" +
-        "\n" +
-        "▪️Treasury: 30,823 BTC (~$3.33B)\n" +
-        "▪️Avg entry: $107,911\n" +
-        "▪️Unrealized https://t.co/69Bi4nS9Sp",
+      text: "🇯🇵 Metaplanet doubles down on Bitcoin\n\nJapan’s largest corporate #BTC holder has drawn $100M from its $500M BTC-backed credit line, using only 3% of its 30,823 BTC treasury as collateral, to buy more Bitcoin.\n\n▪️Treasury: 30,823 BTC (~$3.33B)\n▪️Avg entry: $107,911\n▪️Unrealized https://t.co/69Bi4nS9Sp",
       author: "Crypto Patel (@CryptoPatel)",
       influence: 58,
       url: "https://twitter.com/i/status/1986274843575070881",
@@ -167,12 +277,7 @@ export const reportMockData = {
     },
     {
       id: "1986251843257966860",
-      text:
-        "Do you think @LayerBankFi integration of RWAs like mBTC to generate yields of up to 135% could change the way institutional investors approach Bitcoin?\n" +
-        "\n" +
-        "I think if this yield is extended to other real-world assets beyond BTC, it will be revolutionary for Defi\n" +
-        "\n" +
-        "• LayerBankFi has https://t.co/4XHLxTsYUY",
+      text: "Do you think @LayerBankFi integration of RWAs like mBTC to generate yields of up to 135% could change the way institutional investors approach Bitcoin?\n\nI think if this yield is extended to other real-world assets beyond BTC, it will be revolutionary for Defi\n\n• LayerBankFi has https://t.co/4XHLxTsYUY",
       author: "GinKing (@PTGinKing)",
       influence: 48,
       url: "https://twitter.com/i/status/1986251843257966860",
@@ -184,16 +289,7 @@ export const reportMockData = {
     },
     {
       id: "1986248927419711489",
-      text:
-        "The biggest unlock for Bitcoin right now isn’t another bridge or wrapped token.\n" +
-        "\n" +
-        "It’s connection.\n" +
-        "\n" +
-        "@beyond__tech isn’t asking Bitcoin to move, it’s wiring the rest of crypto to it.\n" +
-        "\n" +
-        "When I use Beyond, I don’t think in chains anymore.\n" +
-        "I think in outcomes.\n" +
-        "“Send from BTC to https://t.co/3wlITe0SmC",
+      text: "The biggest unlock for Bitcoin right now isn’t another bridge or wrapped token.\n\nIt’s connection.\n\n@beyond__tech isn’t asking Bitcoin to move, it’s wiring the rest of crypto to it.\n\nWhen I use Beyond, I don’t think in chains anymore.\nI think in outcomes.\n“Send from BTC to https://t.co/3wlITe0SmC",
       author: "Mr. X | Wallchain (@0xMrXXX)",
       influence: 46,
       url: "https://twitter.com/i/status/1986248927419711489",
@@ -205,10 +301,7 @@ export const reportMockData = {
     },
     {
       id: "1986251012647117201",
-      text:
-        "The @satlayer TVL is at 1366 BTC with LST distribution of UniBTC at 61.6 % of the total across Base &amp; @build_on_bob chain.   The @SolvProtocol SolvBTC.Bera on bera chain have 19.6 %.  Finally Bitlayer  YBTC.B is at 18.3 with others only 0.4 %\n" +
-        "\n" +
-        "Digging into others I was very https://t.co/YfKQR8ODkS",
+      text: "The @satlayer TVL is at 1366 BTC with LST distribution of UniBTC at 61.6 % of the total across Base &amp; @build_on_bob chain.   The @SolvProtocol SolvBTC.Bera on bera chain have 19.6 %.  Finally Bitlayer  YBTC.B is at 18.3 with others only 0.4 %\n\nDigging into others I was very https://t.co/YfKQR8ODkS",
       author: "Chanimal 🍌 $APE 🦍 Noya (@JaysonCrypto)",
       influence: 36,
       url: "https://twitter.com/i/status/1986251012647117201",
@@ -219,11 +312,18 @@ export const reportMockData = {
       replyCount: 11,
     },
   ],
-  reliability: { timeRange: "2025-11-03 ~ 2025-11-06" },
+  reliability: {
+    timeRange: "2025-11-03 ~ 2025-11-06",
+  },
   symbol: "BTC",
   totalInfluence: 363,
   isEmpty: false,
-  coverage: { windowHours: 3, collected: 1000, analyzed: 50, topics: 6 },
+  coverage: {
+    windowHours: 3,
+    collected: 1000,
+    analyzed: 50,
+    topics: 6,
+  },
   highlights: [
     "각국 정부가 비트코인 채굴 사업 진출: 규제 단계를 넘어 정부 차원에서 직접 BTC 채굴에 참여하는 새로운 트렌드가 등장. 국가 주도의 비트코인 채굴이 크립토 시장의 새로운 패러다임으로 부상하고 있음.",
     "BTC 가격 하락에도 대규모 매집 지속: 비트코인 가격이 하락하고 횡보하는 상황에서도 대량의 BTC가 거래소에서 인출되고 있으며, 2024년부터 지속적인 누적 매수세가 관찰됨. 가격 하락과 반대되는 온체인 흐름 확인.",
@@ -250,7 +350,1448 @@ export const reportMockData = {
       mimeType: "image/png",
       base64: "",
     },
-    points: [],
+    points: [
+      {
+        timestamp: 1762316833362,
+        price: 101730.04247407055,
+        volume: 124926690060.20499,
+      },
+      {
+        timestamp: 1762317122326,
+        price: 101607.12136931554,
+        volume: 121916268666.09865,
+      },
+      {
+        timestamp: 1762317372149,
+        price: 101693.40402471327,
+        volume: 124783441784.10979,
+      },
+      {
+        timestamp: 1762317615662,
+        price: 101894.69747579779,
+        volume: 125133629654.9959,
+      },
+      {
+        timestamp: 1762318020624,
+        price: 102105.01028997077,
+        volume: 125221500923.2285,
+      },
+      {
+        timestamp: 1762318210841,
+        price: 102067.1009191999,
+        volume: 125187389404.16525,
+      },
+      {
+        timestamp: 1762318531155,
+        price: 101881.33779025695,
+        volume: 126017291131.19145,
+      },
+      {
+        timestamp: 1762318860935,
+        price: 101969.69331492866,
+        volume: 125483058222.75867,
+      },
+      {
+        timestamp: 1762319210664,
+        price: 102011.33863521002,
+        volume: 125589667081.74733,
+      },
+      {
+        timestamp: 1762319442310,
+        price: 102146.61472002818,
+        volume: 125559044406.95482,
+      },
+      {
+        timestamp: 1762319777045,
+        price: 102242.0053454322,
+        volume: 125067219339.33885,
+      },
+      {
+        timestamp: 1762320112214,
+        price: 102116.1693167559,
+        volume: 126077318985.97818,
+      },
+      {
+        timestamp: 1762320441869,
+        price: 101744.96036420559,
+        volume: 125827387315.07889,
+      },
+      {
+        timestamp: 1762320674880,
+        price: 101883.73096378824,
+        volume: 124954583941.06459,
+      },
+      {
+        timestamp: 1762321015304,
+        price: 101825.64949805806,
+        volume: 125347370786.91084,
+      },
+      {
+        timestamp: 1762321344542,
+        price: 101892.21747946831,
+        volume: 123985319860.40633,
+      },
+      {
+        timestamp: 1762321651720,
+        price: 101729.14336885925,
+        volume: 123210141712.92953,
+      },
+      {
+        timestamp: 1762321963269,
+        price: 101684.11132788449,
+        volume: 122495017653.69319,
+      },
+      {
+        timestamp: 1762322262319,
+        price: 101772.01348925575,
+        volume: 122396063767.00247,
+      },
+      {
+        timestamp: 1762322701680,
+        price: 101746.6560400213,
+        volume: 121982889059.41563,
+      },
+      {
+        timestamp: 1762322964667,
+        price: 101637.66963671686,
+        volume: 120990078195.37752,
+      },
+      {
+        timestamp: 1762323101580,
+        price: 101606.80514102429,
+        volume: 120785770955.7136,
+      },
+      {
+        timestamp: 1762323315322,
+        price: 101661.34159431419,
+        volume: 121371327684.30037,
+      },
+      {
+        timestamp: 1762323751859,
+        price: 101758.20654120442,
+        volume: 120694822188.71638,
+      },
+      {
+        timestamp: 1762323917992,
+        price: 101771.41044350575,
+        volume: 120378919498.5411,
+      },
+      {
+        timestamp: 1762324260706,
+        price: 101893.9475264098,
+        volume: 119810765678.68895,
+      },
+      {
+        timestamp: 1762324623715,
+        price: 102016.83669839156,
+        volume: 119115748725.91103,
+      },
+      {
+        timestamp: 1762324962608,
+        price: 101774.90621724019,
+        volume: 120168879479.39304,
+      },
+      {
+        timestamp: 1762325135497,
+        price: 101841.5360068771,
+        volume: 120181588320.50404,
+      },
+      {
+        timestamp: 1762325484629,
+        price: 101955.70057944975,
+        volume: 119810790706.51395,
+      },
+      {
+        timestamp: 1762325812336,
+        price: 102033.240675827,
+        volume: 119482080391.8031,
+      },
+      {
+        timestamp: 1762326156319,
+        price: 102055.34166335045,
+        volume: 119248342352.68427,
+      },
+      {
+        timestamp: 1762326343176,
+        price: 101972.51582848612,
+        volume: 118873909494.06258,
+      },
+      {
+        timestamp: 1762326711660,
+        price: 101901.99396089891,
+        volume: 118073649121.69122,
+      },
+      {
+        timestamp: 1762327067409,
+        price: 101895.69328702505,
+        volume: 117827898738.4214,
+      },
+      {
+        timestamp: 1762327243607,
+        price: 101865.61383083713,
+        volume: 117556551346.29326,
+      },
+      {
+        timestamp: 1762327611406,
+        price: 101758.27404945547,
+        volume: 118043644623.87048,
+      },
+      {
+        timestamp: 1762327961456,
+        price: 101792.71489350847,
+        volume: 117336315981.96034,
+      },
+      {
+        timestamp: 1762328153580,
+        price: 101854.5388490461,
+        volume: 117932513396.2482,
+      },
+      {
+        timestamp: 1762328512052,
+        price: 101919.28191717798,
+        volume: 117599493611.00887,
+      },
+      {
+        timestamp: 1762328852295,
+        price: 101913.71350347648,
+        volume: 116410419285.52461,
+      },
+      {
+        timestamp: 1762329041120,
+        price: 101913.28773718153,
+        volume: 116653660076.21573,
+      },
+      {
+        timestamp: 1762329361332,
+        price: 101999.4559589914,
+        volume: 117564359249.71094,
+      },
+      {
+        timestamp: 1762329766955,
+        price: 101800.07871962275,
+        volume: 117263849972.04185,
+      },
+      {
+        timestamp: 1762329961528,
+        price: 101748.6923118157,
+        volume: 116788267918.01909,
+      },
+      {
+        timestamp: 1762330327100,
+        price: 101711.84393556019,
+        volume: 116725437073.75198,
+      },
+      {
+        timestamp: 1762330581431,
+        price: 101671.74741015863,
+        volume: 116427633682.3457,
+      },
+      {
+        timestamp: 1762330834040,
+        price: 101526.71634089196,
+        volume: 116135241814.77242,
+      },
+      {
+        timestamp: 1762331131146,
+        price: 101243.83902562004,
+        volume: 115422253398.49117,
+      },
+      {
+        timestamp: 1762331473330,
+        price: 101430.02905349206,
+        volume: 115615255297.19241,
+      },
+      {
+        timestamp: 1762331714322,
+        price: 101582.37414394638,
+        volume: 115864741989.20866,
+      },
+      {
+        timestamp: 1762332091733,
+        price: 101600.0463278602,
+        volume: 115700078412.56418,
+      },
+      {
+        timestamp: 1762332451452,
+        price: 101438.51873063813,
+        volume: 115638063440.59615,
+      },
+      {
+        timestamp: 1762332660639,
+        price: 101412.001116765,
+        volume: 115500034083.50743,
+      },
+      {
+        timestamp: 1762333012141,
+        price: 101773.61102518206,
+        volume: 115814320971.92676,
+      },
+      {
+        timestamp: 1762333221188,
+        price: 101721.44402338844,
+        volume: 115506137557.25755,
+      },
+      {
+        timestamp: 1762333574604,
+        price: 101802.30914660079,
+        volume: 114762854677.0962,
+      },
+      {
+        timestamp: 1762333873194,
+        price: 102145.35004023842,
+        volume: 112391711511.30678,
+      },
+      {
+        timestamp: 1762334231377,
+        price: 101891.34926182582,
+        volume: 115508352877.46489,
+      },
+      {
+        timestamp: 1762334460559,
+        price: 101797.77584204263,
+        volume: 115702963163.69118,
+      },
+      {
+        timestamp: 1762334812059,
+        price: 101860.21242852017,
+        volume: 115434565950.92593,
+      },
+      {
+        timestamp: 1762335154455,
+        price: 101863.63350351727,
+        volume: 114734882960.92076,
+      },
+      {
+        timestamp: 1762335412734,
+        price: 101868.3466934541,
+        volume: 114593896020.01625,
+      },
+      {
+        timestamp: 1762335635518,
+        price: 101920.54446608831,
+        volume: 114768469426.48003,
+      },
+      {
+        timestamp: 1762336063520,
+        price: 101889.12092896669,
+        volume: 114062174250.28519,
+      },
+      {
+        timestamp: 1762336321380,
+        price: 101894.66669633423,
+        volume: 114063074188.45168,
+      },
+      {
+        timestamp: 1762336542566,
+        price: 101933.7303540105,
+        volume: 114579780022.56633,
+      },
+      {
+        timestamp: 1762336921605,
+        price: 101885.86875895652,
+        volume: 114101206688.5142,
+      },
+      {
+        timestamp: 1762337122122,
+        price: 101927.14873071518,
+        volume: 113749882148.24933,
+      },
+      {
+        timestamp: 1762337476169,
+        price: 101843.18336336107,
+        volume: 113310558599.62878,
+      },
+      {
+        timestamp: 1762337830833,
+        price: 101704.72138499936,
+        volume: 113342962938.5173,
+      },
+      {
+        timestamp: 1762338112367,
+        price: 101665.15718304308,
+        volume: 113833135701.82985,
+      },
+      {
+        timestamp: 1762338382457,
+        price: 101787.54561614836,
+        volume: 113723536917.71353,
+      },
+      {
+        timestamp: 1762338753371,
+        price: 101789.3885837062,
+        volume: 113368770903.19835,
+      },
+      {
+        timestamp: 1762339031639,
+        price: 101716.43396076253,
+        volume: 112953599020.4399,
+      },
+      {
+        timestamp: 1762339262626,
+        price: 101681.04289557014,
+        volume: 113467961764.37427,
+      },
+      {
+        timestamp: 1762339651594,
+        price: 101570.72831867382,
+        volume: 113163591273.57225,
+      },
+      {
+        timestamp: 1762339881551,
+        price: 101452.39655910767,
+        volume: 113097861878.78308,
+      },
+      {
+        timestamp: 1762340252907,
+        price: 101368.45074158892,
+        volume: 112761418997.53644,
+      },
+      {
+        timestamp: 1762340431725,
+        price: 101387.2583128507,
+        volume: 112404421314.12709,
+      },
+      {
+        timestamp: 1762340711905,
+        price: 101492.08178584251,
+        volume: 112476542345.5641,
+      },
+      {
+        timestamp: 1762341158836,
+        price: 101561.9254793042,
+        volume: 112639171740.82976,
+      },
+      {
+        timestamp: 1762341383055,
+        price: 101584.8724748776,
+        volume: 112755645141.64513,
+      },
+      {
+        timestamp: 1762341772425,
+        price: 101520.79897342458,
+        volume: 112397138827.9584,
+      },
+      {
+        timestamp: 1762342010828,
+        price: 101669.55235470345,
+        volume: 112559416541.36252,
+      },
+      {
+        timestamp: 1762342243058,
+        price: 101624.50887679888,
+        volume: 112464481408.23105,
+      },
+      {
+        timestamp: 1762342660677,
+        price: 101776.02064663789,
+        volume: 112374399741.43892,
+      },
+      {
+        timestamp: 1762342860731,
+        price: 101797.87571120514,
+        volume: 111252295072.08063,
+      },
+      {
+        timestamp: 1762343125262,
+        price: 101751.08711492199,
+        volume: 111179434692.97464,
+      },
+      {
+        timestamp: 1762343542363,
+        price: 101903.73430458287,
+        volume: 111746121940.18105,
+      },
+      {
+        timestamp: 1762343783158,
+        price: 102011.02332747034,
+        volume: 112230659343.41122,
+      },
+      {
+        timestamp: 1762344053334,
+        price: 102042.61664345585,
+        volume: 112163560343.32097,
+      },
+      {
+        timestamp: 1762344414923,
+        price: 101973.5841467702,
+        volume: 112501715078.23987,
+      },
+      {
+        timestamp: 1762344622363,
+        price: 101994.34673192534,
+        volume: 112425243401.1424,
+      },
+      {
+        timestamp: 1762345058471,
+        price: 102025.50263156027,
+        volume: 111935046867.28903,
+      },
+      {
+        timestamp: 1762345371407,
+        price: 102349.38538728596,
+        volume: 109794904789.70387,
+      },
+      {
+        timestamp: 1762345611662,
+        price: 102625.14400177072,
+        volume: 112962244226.67334,
+      },
+      {
+        timestamp: 1762345830578,
+        price: 102465.73765384404,
+        volume: 113131181891.88063,
+      },
+      {
+        timestamp: 1762346184495,
+        price: 102377.22303856893,
+        volume: 112966487292.95833,
+      },
+      {
+        timestamp: 1762346562061,
+        price: 102554.1367576462,
+        volume: 112386871524.44002,
+      },
+      {
+        timestamp: 1762346874940,
+        price: 102565.86116359773,
+        volume: 113079735004.54367,
+      },
+      {
+        timestamp: 1762347101994,
+        price: 102681.95261942792,
+        volume: 111976826872.16324,
+      },
+      {
+        timestamp: 1762347451642,
+        price: 102542.27433180354,
+        volume: 112797178957.82965,
+      },
+      {
+        timestamp: 1762347661131,
+        price: 102637.53102512867,
+        volume: 111796373517.31786,
+      },
+      {
+        timestamp: 1762348121394,
+        price: 102620.20587048853,
+        volume: 112184454203.35522,
+      },
+      {
+        timestamp: 1762348410764,
+        price: 102530.09732487793,
+        volume: 112906532777.88953,
+      },
+      {
+        timestamp: 1762348591065,
+        price: 102470.17572739803,
+        volume: 112924438849.18346,
+      },
+      {
+        timestamp: 1762348971320,
+        price: 102377.31090883969,
+        volume: 102712696846.76576,
+      },
+      {
+        timestamp: 1762349280605,
+        price: 102479.2802055995,
+        volume: 112816473178.91264,
+      },
+      {
+        timestamp: 1762349580831,
+        price: 102458.64940856834,
+        volume: 112679744950.921,
+      },
+      {
+        timestamp: 1762349742206,
+        price: 102422.35840826726,
+        volume: 112240096937.5506,
+      },
+      {
+        timestamp: 1762350071978,
+        price: 102651.28716057201,
+        volume: 112836056584.74643,
+      },
+      {
+        timestamp: 1762350360580,
+        price: 102817.68229878639,
+        volume: 112160800068.78392,
+      },
+      {
+        timestamp: 1762350641420,
+        price: 102981.43086033534,
+        volume: 112394029787.34941,
+      },
+      {
+        timestamp: 1762350926831,
+        price: 103178.71392918345,
+        volume: 112612923245.11005,
+      },
+      {
+        timestamp: 1762351362034,
+        price: 102915.11727129562,
+        volume: 113658132317.88689,
+      },
+      {
+        timestamp: 1762351637894,
+        price: 102936.11744703454,
+        volume: 113059402863.50192,
+      },
+      {
+        timestamp: 1762351860635,
+        price: 102756.90084084118,
+        volume: 112540957306.22945,
+      },
+      {
+        timestamp: 1762352161924,
+        price: 102649.63012732535,
+        volume: 112717914160.50072,
+      },
+      {
+        timestamp: 1762352531385,
+        price: 102723.15417938738,
+        volume: 113303127846.7812,
+      },
+      {
+        timestamp: 1762352785092,
+        price: 102601.5451407761,
+        volume: 113494912840.93327,
+      },
+      {
+        timestamp: 1762353165324,
+        price: 102592.36050920097,
+        volume: 113311182827.86761,
+      },
+      {
+        timestamp: 1762353431313,
+        price: 102376.83858298979,
+        volume: 112763138635.95346,
+      },
+      {
+        timestamp: 1762353766916,
+        price: 103017.52885068384,
+        volume: 112591220345.37177,
+      },
+      {
+        timestamp: 1762354020939,
+        price: 103005.34611604513,
+        volume: 112539638364.57208,
+      },
+      {
+        timestamp: 1762354302113,
+        price: 103250.35616700987,
+        volume: 109885861620.62228,
+      },
+      {
+        timestamp: 1762354572144,
+        price: 103254.86103548636,
+        volume: 111868771122.70772,
+      },
+      {
+        timestamp: 1762354941611,
+        price: 103060.14313478644,
+        volume: 111478672050.14543,
+      },
+      {
+        timestamp: 1762355233908,
+        price: 102992.46173228734,
+        volume: 111432761284.53864,
+      },
+      {
+        timestamp: 1762355482853,
+        price: 103304.84812469133,
+        volume: 111491201676.7545,
+      },
+      {
+        timestamp: 1762355856228,
+        price: 103129.04897550866,
+        volume: 111388594582.35112,
+      },
+      {
+        timestamp: 1762356026703,
+        price: 103159.04267956963,
+        volume: 111284828303.44963,
+      },
+      {
+        timestamp: 1762356372884,
+        price: 103230.81317491955,
+        volume: 111323639017.07909,
+      },
+      {
+        timestamp: 1762356752797,
+        price: 103344.84232052599,
+        volume: 111058790369.01614,
+      },
+      {
+        timestamp: 1762357002111,
+        price: 103397.96342121993,
+        volume: 111110771434.62901,
+      },
+      {
+        timestamp: 1762357236350,
+        price: 103431.58682718003,
+        volume: 111530797444.94733,
+      },
+      {
+        timestamp: 1762357620846,
+        price: 103628.64471072033,
+        volume: 111356276408.4888,
+      },
+      {
+        timestamp: 1762357901147,
+        price: 103583.75462622187,
+        volume: 111317907295.60516,
+      },
+      {
+        timestamp: 1762358160967,
+        price: 103656.46567931224,
+        volume: 111095299109.55647,
+      },
+      {
+        timestamp: 1762358561685,
+        price: 103746.37817720888,
+        volume: 110486974821.7749,
+      },
+      {
+        timestamp: 1762358821025,
+        price: 103541.61455128256,
+        volume: 110420727605.78265,
+      },
+      {
+        timestamp: 1762359041204,
+        price: 103525.580401936,
+        volume: 110266536051.68602,
+      },
+      {
+        timestamp: 1762359461237,
+        price: 103326.43561726464,
+        volume: 108873576345.20842,
+      },
+      {
+        timestamp: 1762359711315,
+        price: 103174.80088018258,
+        volume: 109186996644.20604,
+      },
+      {
+        timestamp: 1762360002012,
+        price: 103321.26593260701,
+        volume: 108268982600.06065,
+      },
+      {
+        timestamp: 1762360380701,
+        price: 103554.10828945356,
+        volume: 106243002102.8397,
+      },
+      {
+        timestamp: 1762360560578,
+        price: 103607.26389744898,
+        volume: 108530461155.03146,
+      },
+      {
+        timestamp: 1762360920556,
+        price: 103660.83948976404,
+        volume: 108431895252.49802,
+      },
+      {
+        timestamp: 1762361211491,
+        price: 103609.24104037326,
+        volume: 108035005652.78166,
+      },
+      {
+        timestamp: 1762361476394,
+        price: 103852.16129503862,
+        volume: 108305729590.44556,
+      },
+      {
+        timestamp: 1762361880709,
+        price: 103925.91690514336,
+        volume: 107939355134.16586,
+      },
+      {
+        timestamp: 1762362091899,
+        price: 103866.0704519179,
+        volume: 107634452547.88823,
+      },
+      {
+        timestamp: 1762362481183,
+        price: 103617.81806093673,
+        volume: 106367997535.25793,
+      },
+      {
+        timestamp: 1762362645881,
+        price: 103475.06856158095,
+        volume: 103182285114.44131,
+      },
+      {
+        timestamp: 1762362962418,
+        price: 103433.22166834584,
+        volume: 104305090173.33122,
+      },
+      {
+        timestamp: 1762363261087,
+        price: 103696.06453471603,
+        volume: 104140425088.41653,
+      },
+      {
+        timestamp: 1762363620648,
+        price: 103829.51773165977,
+        volume: 103622334050.6959,
+      },
+      {
+        timestamp: 1762363911421,
+        price: 103927.76228233508,
+        volume: 103425610510.07338,
+      },
+      {
+        timestamp: 1762364210835,
+        price: 103795.46483282796,
+        volume: 103013822792.70229,
+      },
+      {
+        timestamp: 1762364460652,
+        price: 103826.36336008977,
+        volume: 102596615706.65387,
+      },
+      {
+        timestamp: 1762364783830,
+        price: 103884.19508425008,
+        volume: 102873765047.31757,
+      },
+      {
+        timestamp: 1762365083766,
+        price: 103537.93154700853,
+        volume: 102325458127.41441,
+      },
+      {
+        timestamp: 1762365333476,
+        price: 103664.234370799,
+        volume: 102960897544.03192,
+      },
+      {
+        timestamp: 1762365653861,
+        price: 103838.00438860343,
+        volume: 99535772545.1949,
+      },
+      {
+        timestamp: 1762365926086,
+        price: 103800.78962815827,
+        volume: 101138780705.19754,
+      },
+      {
+        timestamp: 1762366293686,
+        price: 103806.12181542668,
+        volume: 100647848725.3264,
+      },
+      {
+        timestamp: 1762366620992,
+        price: 103955.82344015612,
+        volume: 101294521728.94576,
+      },
+      {
+        timestamp: 1762366920936,
+        price: 103934.75344304522,
+        volume: 100830032077.08585,
+      },
+      {
+        timestamp: 1762367181974,
+        price: 103990.34850630829,
+        volume: 100186013837.37878,
+      },
+      {
+        timestamp: 1762367422625,
+        price: 104082.0354431325,
+        volume: 97175879398.47589,
+      },
+      {
+        timestamp: 1762367820777,
+        price: 104099.6756585312,
+        volume: 98370795671.94269,
+      },
+      {
+        timestamp: 1762368091808,
+        price: 104219.25374751019,
+        volume: 98416076056.62912,
+      },
+      {
+        timestamp: 1762368472186,
+        price: 104251.96802989872,
+        volume: 98288418382.20349,
+      },
+      {
+        timestamp: 1762368702862,
+        price: 104294.49861992622,
+        volume: 97060989004.4734,
+      },
+      {
+        timestamp: 1762369080619,
+        price: 104346.43586243482,
+        volume: 97559087390.12857,
+      },
+      {
+        timestamp: 1762369312635,
+        price: 104304.64519533695,
+        volume: 96658873973.62651,
+      },
+      {
+        timestamp: 1762369604363,
+        price: 104216.29589241718,
+        volume: 96360499677.57375,
+      },
+      {
+        timestamp: 1762369940972,
+        price: 104144.82602859513,
+        volume: 91866808341.22575,
+      },
+      {
+        timestamp: 1762370255643,
+        price: 104262.13074193652,
+        volume: 96623129081.47734,
+      },
+      {
+        timestamp: 1762370520629,
+        price: 104275.6982502892,
+        volume: 96380353580.27289,
+      },
+      {
+        timestamp: 1762370760757,
+        price: 104247.71136186372,
+        volume: 95873065712.51434,
+      },
+      {
+        timestamp: 1762371081438,
+        price: 104221.03752904703,
+        volume: 95503629693.03104,
+      },
+      {
+        timestamp: 1762371481517,
+        price: 104374.97398180384,
+        volume: 95550102278.04724,
+      },
+      {
+        timestamp: 1762371611114,
+        price: 104348.24554730339,
+        volume: 95639239749.132,
+      },
+      {
+        timestamp: 1762372063436,
+        price: 104255.26702330548,
+        volume: 95559217359.13379,
+      },
+      {
+        timestamp: 1762372233754,
+        price: 104045.14095648461,
+        volume: 95585007128.99406,
+      },
+      {
+        timestamp: 1762372572748,
+        price: 104111.5245112275,
+        volume: 94242028930.51823,
+      },
+      {
+        timestamp: 1762372834191,
+        price: 104037.50946331791,
+        volume: 94655645431.39671,
+      },
+      {
+        timestamp: 1762373123679,
+        price: 104068.13763802976,
+        volume: 93828433678.20355,
+      },
+      {
+        timestamp: 1762373561269,
+        price: 104227.92938690366,
+        volume: 93698283931.73627,
+      },
+      {
+        timestamp: 1762373870931,
+        price: 104411.70840955827,
+        volume: 93436097519.55504,
+      },
+      {
+        timestamp: 1762374012886,
+        price: 104296.41034644969,
+        volume: 92310787081.59589,
+      },
+      {
+        timestamp: 1762374383498,
+        price: 104273.44000144649,
+        volume: 91524171118.10216,
+      },
+      {
+        timestamp: 1762374735270,
+        price: 103904.18635481386,
+        volume: 90941146721.24722,
+      },
+      {
+        timestamp: 1762374981563,
+        price: 103938.35020667355,
+        volume: 89483602060.32222,
+      },
+      {
+        timestamp: 1762375242690,
+        price: 103844.8121129047,
+        volume: 89418714015.35986,
+      },
+      {
+        timestamp: 1762375581110,
+        price: 103892.44621606111,
+        volume: 89353573718.81578,
+      },
+      {
+        timestamp: 1762375973028,
+        price: 103821.03783746278,
+        volume: 89529303524.85493,
+      },
+      {
+        timestamp: 1762376151056,
+        price: 103880.5646805363,
+        volume: 89589302198.43129,
+      },
+      {
+        timestamp: 1762376535849,
+        price: 103685.44323946,
+        volume: 88701408160.78444,
+      },
+      {
+        timestamp: 1762376867968,
+        price: 103739.90755474166,
+        volume: 88222695999.14786,
+      },
+      {
+        timestamp: 1762377113513,
+        price: 103698.99585425724,
+        volume: 87769759960.44939,
+      },
+      {
+        timestamp: 1762377434169,
+        price: 103728.39825323541,
+        volume: 87278478920.4463,
+      },
+      {
+        timestamp: 1762377763394,
+        price: 103779.89676286181,
+        volume: 87268976184.39966,
+      },
+      {
+        timestamp: 1762377982745,
+        price: 103748.25910237811,
+        volume: 87005470237.14,
+      },
+      {
+        timestamp: 1762378364098,
+        price: 103614.47921791147,
+        volume: 86157271275.14183,
+      },
+      {
+        timestamp: 1762378541441,
+        price: 103690.01111405183,
+        volume: 85752298505.23755,
+      },
+      {
+        timestamp: 1762378916931,
+        price: 103670.41345321108,
+        volume: 84510462166.717,
+      },
+      {
+        timestamp: 1762379272464,
+        price: 103618.19042314566,
+        volume: 84167458496.02878,
+      },
+      {
+        timestamp: 1762379521286,
+        price: 103700.0863972431,
+        volume: 83544644470.48207,
+      },
+      {
+        timestamp: 1762379760658,
+        price: 103705.12954179787,
+        volume: 83164723551.19366,
+      },
+      {
+        timestamp: 1762380010832,
+        price: 103664.70414009251,
+        volume: 82545388645.14903,
+      },
+      {
+        timestamp: 1762380392688,
+        price: 103474.16694156153,
+        volume: 82237590677.55339,
+      },
+      {
+        timestamp: 1762380773961,
+        price: 103476.91037849564,
+        volume: 81382887726.55856,
+      },
+      {
+        timestamp: 1762380921500,
+        price: 103417.93835541786,
+        volume: 81452348201.70413,
+      },
+      {
+        timestamp: 1762381321013,
+        price: 103385.77360975595,
+        volume: 80655464108.68701,
+      },
+      {
+        timestamp: 1762381658866,
+        price: 103462.56401490836,
+        volume: 80452784230.7087,
+      },
+      {
+        timestamp: 1762381845456,
+        price: 103414.23009197073,
+        volume: 80065118017.58533,
+      },
+      {
+        timestamp: 1762382124597,
+        price: 103433.52238109548,
+        volume: 83520165243.40103,
+      },
+      {
+        timestamp: 1762382460638,
+        price: 103400.6653939061,
+        volume: 83051823081.12613,
+      },
+      {
+        timestamp: 1762382775824,
+        price: 103617.33867062443,
+        volume: 83239064483.22922,
+      },
+      {
+        timestamp: 1762383071197,
+        price: 103663.66004874915,
+        volume: 83030158620.95526,
+      },
+      {
+        timestamp: 1762383374647,
+        price: 103731.59710288851,
+        volume: 79392228361.15564,
+      },
+      {
+        timestamp: 1762383741240,
+        price: 103796.27382891701,
+        volume: 78890483649.04199,
+      },
+      {
+        timestamp: 1762384058197,
+        price: 103682.8737253889,
+        volume: 78626621031.80017,
+      },
+      {
+        timestamp: 1762384372136,
+        price: 103730.28072154705,
+        volume: 78139248227.86554,
+      },
+      {
+        timestamp: 1762384536382,
+        price: 103772.6914158166,
+        volume: 77921997656.19417,
+      },
+      {
+        timestamp: 1762384892353,
+        price: 103831.17609561325,
+        volume: 78036552307.75027,
+      },
+      {
+        timestamp: 1762385221032,
+        price: 103913.68808561502,
+        volume: 78054343312.67178,
+      },
+      {
+        timestamp: 1762385551912,
+        price: 103930.24223133532,
+        volume: 77885879904.05959,
+      },
+      {
+        timestamp: 1762385792118,
+        price: 103921.53487360406,
+        volume: 77724838832.12303,
+      },
+      {
+        timestamp: 1762386131506,
+        price: 103913.47593701244,
+        volume: 77579167757.14546,
+      },
+      {
+        timestamp: 1762386441683,
+        price: 104023.49431980684,
+        volume: 77945941319.37093,
+      },
+      {
+        timestamp: 1762386664448,
+        price: 103956.59345454306,
+        volume: 77536129403.38374,
+      },
+      {
+        timestamp: 1762387041996,
+        price: 103877.95965955159,
+        volume: 77083907216.62631,
+      },
+      {
+        timestamp: 1762387212558,
+        price: 103878.93359970281,
+        volume: 77092678814.22162,
+      },
+      {
+        timestamp: 1762387604496,
+        price: 103528.88581515776,
+        volume: 80143068478.01297,
+      },
+      {
+        timestamp: 1762387821015,
+        price: 103604.84310841154,
+        volume: 80176741243.75682,
+      },
+      {
+        timestamp: 1762388254151,
+        price: 103731.02252957616,
+        volume: 79812288158.43779,
+      },
+      {
+        timestamp: 1762388575776,
+        price: 103497.68434290643,
+        volume: 79436493227.19157,
+      },
+      {
+        timestamp: 1762388741823,
+        price: 103450.82926504726,
+        volume: 79853610475.60602,
+      },
+      {
+        timestamp: 1762389052934,
+        price: 103425.05224927847,
+        volume: 79854599929.09267,
+      },
+      {
+        timestamp: 1762389351296,
+        price: 103382.30306149166,
+        volume: 79833822954.99832,
+      },
+      {
+        timestamp: 1762389645781,
+        price: 103404.75888054584,
+        volume: 79690873655.22644,
+      },
+      {
+        timestamp: 1762389942782,
+        price: 103380.99138422904,
+        volume: 79223620678.50322,
+      },
+      {
+        timestamp: 1762390225474,
+        price: 103470.3531868777,
+        volume: 79146124280.76663,
+      },
+      {
+        timestamp: 1762390574628,
+        price: 103639.47702996855,
+        volume: 79253307369.70457,
+      },
+      {
+        timestamp: 1762390901368,
+        price: 103603.0299498795,
+        volume: 78769803163.10092,
+      },
+      {
+        timestamp: 1762391192261,
+        price: 103475.08662939795,
+        volume: 78485317247.92714,
+      },
+      {
+        timestamp: 1762391562441,
+        price: 103164.2622468815,
+        volume: 75557459405.3538,
+      },
+      {
+        timestamp: 1762391881689,
+        price: 103223.28734107644,
+        volume: 78146167235.28674,
+      },
+      {
+        timestamp: 1762392071877,
+        price: 102972.51843364668,
+        volume: 77695800271.10313,
+      },
+      {
+        timestamp: 1762392394289,
+        price: 102874.94897131802,
+        volume: 77250665307.36124,
+      },
+      {
+        timestamp: 1762392700667,
+        price: 102853.12992554693,
+        volume: 77336332146.04178,
+      },
+      {
+        timestamp: 1762393072852,
+        price: 103217.28697914214,
+        volume: 77352249918.93326,
+      },
+      {
+        timestamp: 1762393252455,
+        price: 103327.85198607913,
+        volume: 74773072196.55086,
+      },
+      {
+        timestamp: 1762393572323,
+        price: 103317.42072559359,
+        volume: 76019669772.79958,
+      },
+      {
+        timestamp: 1762393835117,
+        price: 103394.25131396977,
+        volume: 76150312525.71503,
+      },
+      {
+        timestamp: 1762394181318,
+        price: 103412.82979594373,
+        volume: 75502624095.35715,
+      },
+      {
+        timestamp: 1762394531810,
+        price: 103340.09524344692,
+        volume: 74430535076.9113,
+      },
+      {
+        timestamp: 1762394831203,
+        price: 103223.91750358207,
+        volume: 74346144996.34227,
+      },
+      {
+        timestamp: 1762395141189,
+        price: 103103.74857066039,
+        volume: 73742081210.88637,
+      },
+      {
+        timestamp: 1762395463039,
+        price: 103083.11869613898,
+        volume: 73083751957.54628,
+      },
+      {
+        timestamp: 1762395756237,
+        price: 102987.55889928814,
+        volume: 72901811399.96921,
+      },
+      {
+        timestamp: 1762395982139,
+        price: 102893.69842753958,
+        volume: 72702514127.95105,
+      },
+      {
+        timestamp: 1762396331732,
+        price: 102937.78644272005,
+        volume: 71841982394.15189,
+      },
+      {
+        timestamp: 1762396574296,
+        price: 103069.95423530342,
+        volume: 72091208077.9622,
+      },
+      {
+        timestamp: 1762396872983,
+        price: 103217.90944196256,
+        volume: 69414238400.66641,
+      },
+      {
+        timestamp: 1762397261448,
+        price: 103468.1994593579,
+        volume: 70677838803.48686,
+      },
+      {
+        timestamp: 1762397501399,
+        price: 103527.02706159311,
+        volume: 68438118295.27012,
+      },
+      {
+        timestamp: 1762397731960,
+        price: 103442.54187532433,
+        volume: 70261901001.73695,
+      },
+      {
+        timestamp: 1762398073184,
+        price: 103356.79597853754,
+        volume: 69748237337.51825,
+      },
+      {
+        timestamp: 1762398416383,
+        price: 103441.77886850349,
+        volume: 69362975962.97177,
+      },
+      {
+        timestamp: 1762398721035,
+        price: 103482.35447576926,
+        volume: 69357274880.37093,
+      },
+      {
+        timestamp: 1762399031480,
+        price: 103575.06442807613,
+        volume: 69176047950.51001,
+      },
+      {
+        timestamp: 1762399320696,
+        price: 103774.25246177141,
+        volume: 67439471724.736496,
+      },
+      {
+        timestamp: 1762399630889,
+        price: 103724.07232500621,
+        volume: 68556335509.84996,
+      },
+      {
+        timestamp: 1762399920747,
+        price: 103692.86529262901,
+        volume: 68186778202.15121,
+      },
+      {
+        timestamp: 1762400231792,
+        price: 103689.74078138162,
+        volume: 68022374183.68865,
+      },
+      {
+        timestamp: 1762400521158,
+        price: 103707.64529051077,
+        volume: 67375186906.96521,
+      },
+      {
+        timestamp: 1762400774626,
+        price: 103644.66486817565,
+        volume: 66968857618.75578,
+      },
+      {
+        timestamp: 1762401014598,
+        price: 103656.65156686353,
+        volume: 66885116147.262245,
+      },
+      {
+        timestamp: 1762401381022,
+        price: 103654.67019229465,
+        volume: 66285022954.00753,
+      },
+      {
+        timestamp: 1762401980821,
+        price: 103610.50079692148,
+        volume: 65263011538.06202,
+      },
+      {
+        timestamp: 1762402081438,
+        price: 103600.57086579758,
+        volume: 65477229667.85812,
+      },
+      {
+        timestamp: 1762402305712,
+        price: 103626.33313434193,
+        volume: 64710363449.9557,
+      },
+      {
+        timestamp: 1762402681237,
+        price: 103737.76691207403,
+        volume: 64640010762.31722,
+      },
+      {
+        timestamp: 1762402839357,
+        price: 103742.11008374502,
+        volume: 64209792105.06729,
+      },
+    ],
     intervalMinutes: 5,
   },
   topicsTimeline: [
@@ -259,42 +1800,72 @@ export const reportMockData = {
       heat: 63,
       tweetId: "1986279095987282008",
       createdAt: "2025-11-06T03:46:54.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 20,
+        likes: 129,
+        quotes: 4,
+        replies: 52,
+      },
     },
     {
       title: "BTC 가격 하락에도 대규모 매집 지속",
       heat: 49,
       tweetId: "1986246690366743010",
       createdAt: "2025-11-06T01:38:08.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 12,
+        likes: 98,
+        quotes: 1,
+        replies: 6,
+      },
     },
     {
       title: "일본 Metaplanet, 1억달러 BTC 담보 신용한도 활용",
       heat: 48,
       tweetId: "1986274843575070881",
       createdAt: "2025-11-06T03:30:00.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 14,
+        likes: 100,
+        quotes: 0,
+        replies: 0,
+      },
     },
     {
       title: "RWA 통합으로 BTC 수익률 135% 달성 가능성",
       heat: 43,
       tweetId: "1986251843257966860",
       createdAt: "2025-11-06T01:58:36.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 12,
+        likes: 40,
+        quotes: 0,
+        replies: 28,
+      },
     },
     {
       title: "비트코인 생태계 확장의 핵심은 연결성",
       heat: 43,
       tweetId: "1986248927419711489",
       createdAt: "2025-11-06T01:47:01.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 2,
+        likes: 43,
+        quotes: 0,
+        replies: 35,
+      },
     },
     {
       title: "SatLayer TVL 1,366 BTC 달성, UniBTC 61.6% 점유",
       heat: 39,
       tweetId: "1986251012647117201",
       createdAt: "2025-11-06T01:55:18.000Z",
-      metrics: [Object],
+      metrics: {
+        retweets: 15,
+        likes: 29,
+        quotes: 0,
+        replies: 11,
+      },
     },
   ],
 };

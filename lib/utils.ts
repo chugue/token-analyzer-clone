@@ -13,3 +13,21 @@ export function formatUsd(v?: number) {
     maximumFractionDigits: digits,
   })} USD`;
 }
+
+export function formatPercent(value?: number | null): string {
+  if (value === null || value === undefined || Number.isNaN(value)) {
+    return "—";
+  }
+  const fixed = value.toFixed(2).replace(/-0\.00/, "0.00");
+  return value > 0 ? `+${fixed}%` : `${fixed}%`;
+}
+
+export function formatPriceShort(v?: number) {
+  if (typeof v !== "number" || Number.isNaN(v)) return "—";
+  const abs = Math.abs(v);
+  const digits = abs >= 100 ? 2 : abs >= 1 ? 3 : 6;
+  return v.toLocaleString("en-US", { maximumFractionDigits: digits });
+}
+
+export const priceTickFormatter = (value: number) =>
+  value.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
