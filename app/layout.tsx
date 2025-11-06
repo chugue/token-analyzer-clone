@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ userSelect: "text" }}
+        style={{ userSelect: "text", overscrollBehavior: "none" }}
       >
         {children}
       </body>
