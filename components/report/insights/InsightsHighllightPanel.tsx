@@ -1,4 +1,7 @@
-import { buildSummary, extractChips } from "@/lib/helpers/insights-helpers";
+import {
+  buildSummary,
+  extractChips,
+} from "@/lib/helpers/report-insights-helpers";
 import { DetailedReport } from "@/lib/types/report.t";
 import { useMemo } from "react";
 interface HighlightsPanelProps {

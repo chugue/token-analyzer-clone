@@ -4,6 +4,7 @@ import ReportError from "@/components/report/ReportError";
 import ReportHeroHeader from "@/components/report/ReportHeroHeader";
 import ReportLoading from "@/components/report/ReportLoading";
 import ReportNoResults from "@/components/report/ReportNoResults";
+import ReportSnapshot from "@/components/report/ReportSnapshot";
 import ReportSummaryBar from "@/components/report/ReportSummaryBar";
 import InsightsTabs from "@/components/report/insights/InsightsTabs";
 import TimelineSection from "@/components/report/topics/TimelineSection";
@@ -42,6 +43,7 @@ const ReportDetailPage = () => {
             <TopicSection report={report} />
             <TimelineSection report={report} />
           </div>
+          <ReportSnapshot report={report} />
         </div>
       )}
     </main>
