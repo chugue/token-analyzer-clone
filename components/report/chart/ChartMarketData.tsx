@@ -186,7 +186,7 @@ const ChartMarketData = ({ report }: { report: DetailedReport }) => {
               </ComposedChart>
             </ResponsiveContainer>
 
-            <div className="pointer-events-none absolute right-2 top-2 rounded-full border border-white/10 bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-slate-100">
+            <div className="pointer-events-none absolute right-25 top-2 rounded-full border border-white/10 bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-slate-100">
               7D
             </div>
           </div>

@@ -43,24 +43,25 @@ const ReportSummaryBar = ({ report }: { report: DetailedReport }) => {
     >
       <div className="backdrop-blur supports-backdrop-filter:bg-slate-900/75 bg-slate-900/90 border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-2">
-          <div className="flex items-center justify-between gap-3 text-sm"></div>
-          <div className="min-w-0 truncate font-semibold text-slate-100">
-            {symbol} · {name}
-          </div>
-          <div className="flex items-center gap-3 text-slate-100">
-            <HeatStarRating heat={report.metrics.totalHeat ?? 0} size="sm" />
-            <span className="font-medium">관심도 {interestTen}/10</span>
-          </div>
+          <div className="flex flex-row items-center justify-between text-sm">
+            <div className="min-w-0 truncate font-semibold text-slate-100">
+              {symbol} · {name}
+            </div>
+            <div className="flex items-center gap-3 text-slate-100">
+              <HeatStarRating heat={report.metrics.totalHeat ?? 0} size="sm" />
+              <span className="font-medium">관심도 {interestTen}/10</span>
+            </div>
 
-          <div className="flex items-center gap-3 text-slate-200">
-            <span className="whitespace-nowrap">24h {change24h}</span>
-            <span className="whitespace-nowrap">3d {change3d}</span>
-            <a
-              href="#topics"
-              className="ml-2 inline-flex items-center rounded-md border border-white/10 bg-white/10 px-3 py-1 font-semibold text-slate-100 hover:bg-white/15"
-            >
-              토픽 보기
-            </a>
+            <div className="flex items-center gap-3 text-slate-200">
+              <span className="whitespace-nowrap">24h {change24h}</span>
+              <span className="whitespace-nowrap">3d {change3d}</span>
+              <a
+                href="#topics"
+                className="ml-2 inline-flex items-center rounded-md border border-white/10 bg-white/10 px-3 py-1 font-semibold text-slate-100 hover:bg-white/15"
+              >
+                토픽 보기
+              </a>
+            </div>
           </div>
         </div>
       </div>

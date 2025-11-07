@@ -1,7 +1,7 @@
 import {
   fetchCoingeckoMarketChart,
   fetchCoingeckoOhlc,
-} from "@/lib/helpers/market-data-helpers";
+} from "@/lib/helpers/report-market-data-helpers";
 import { Result } from "@/lib/types/result";
 import { NextRequest, NextResponse } from "next/server";
 

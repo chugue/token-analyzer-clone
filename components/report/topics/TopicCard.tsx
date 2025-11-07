@@ -3,7 +3,7 @@ import {
   SENTIMENT_ALIASES,
   SENTIMENT_LABELS,
   sentimentStyles,
-} from "@/lib/helpers/topic-helpers";
+} from "@/lib/helpers/report-topic-helpers";
 import { TopicDetail } from "@/lib/types/report.t";
 import { formatCompactNumber, formatTimeDistance } from "@/lib/utils";
 import { useMemo } from "react";
