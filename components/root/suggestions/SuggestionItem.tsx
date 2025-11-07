@@ -1,11 +1,46 @@
-import handleTickerPick from "@/lib/helpers/handle-ticker-pick";
+import useTickerStore from "@/lib/store/ticker-store";
 import { TickerMetaData } from "@/lib/types/ticker.t";
 
-const SuggestionItem = ({ suggestion }: { suggestion: TickerMetaData }) => {
+const SuggestionItem = ({
+  suggestion,
+  lastSelectedSymbolRef,
+}: {
+  suggestion: TickerMetaData;
+  lastSelectedSymbolRef: React.RefObject<string | null>;
+}) => {
+  const {
+    setPickedTicker,
+    setSuggestions,
+    setSource,
+    setTicker,
+    setName,
+    setSlug,
+    setSourceId,
+    setRank,
+    setSuggestionError,
+    setHasSuggestions,
+    setAnalysisError,
+  } = useTickerStore();
+
+  const handleSuggestionSelect = (suggestion: TickerMetaData) => {
+    setSource("coingecko");
+    setName(suggestion.name);
+    setSlug(suggestion.slug);
+    setSourceId(suggestion.sourceId.toString());
+    setRank(suggestion.rank.toString());
+    setPickedTicker(suggestion);
+    setSuggestions([]);
+    setTicker(suggestion.ticker);
+    setSuggestionError("");
+    setHasSuggestions(false);
+    setAnalysisError("");
+    lastSelectedSymbolRef.current = suggestion.ticker;
+  };
+
   return (
     <div
       className="flex flex-col gap-0.5 p-2 hover:bg-blue-100/40 cursor-pointer"
-      onClick={() => handleTickerPick(suggestion)}
+      onClick={() => handleSuggestionSelect(suggestion)}
     >
       <div className="flex flex-row justify-between">
         <p className="text-sm font-medium whitespace-nowrap">

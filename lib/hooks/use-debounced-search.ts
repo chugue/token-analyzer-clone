@@ -1,45 +1,82 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 import useTickerStore from "../store/ticker-store";
 import { TickerMetaData } from "../types/ticker.t";
 
-const useDebouncedSearch = (ticker: string, delay: number = 500) => {
-  const searchControllerRef = useRef<AbortController | null>(null);
-
+const useDebouncedSearch = (
+  delay: number = 500,
+  searchControllerRef: React.RefObject<AbortController | null>,
+  searchTimeoutRef: React.RefObject<NodeJS.Timeout | null>,
+  lastSelectedSymbolRef: React.RefObject<string | null>
+) => {
   const {
-    debouncedTicker,
+    pickedTicker,
+    ticker,
     setIsSuggesting,
-    setDebouncedTicker,
     setHasSuggestions,
     setSuggestionError,
     setSuggestions,
   } = useTickerStore();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedTicker(ticker);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [ticker]);
-
-  useEffect(() => {
-    if (!debouncedTicker || debouncedTicker.length === 0) return;
-    if (searchControllerRef.current) {
-      searchControllerRef.current.abort();
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
     }
 
-    const controller = new AbortController();
-    searchControllerRef.current = controller;
+    if (pickedTicker) {
+      if (searchControllerRef.current) {
+        searchControllerRef.current.abort();
+        searchControllerRef.current = null;
+      }
+      setIsSuggesting(false);
+      setHasSuggestions(false);
+      return;
+    }
 
-    const fetchSuggestions = async () => {
+    const trimmed = ticker.trim();
+
+    if (
+      lastSelectedSymbolRef.current &&
+      trimmed === lastSelectedSymbolRef.current
+    ) {
+      lastSelectedSymbolRef.current = null;
+      setSuggestions([]);
+      setSuggestionError("");
+      setIsSuggesting(false);
+      setHasSuggestions(false);
+
+      if (searchControllerRef.current) {
+        searchControllerRef.current.abort();
+        searchControllerRef.current = null;
+      }
+      return;
+    }
+
+    if (!trimmed) {
+      if (searchControllerRef.current) {
+        searchControllerRef.current.abort();
+        searchControllerRef.current = null;
+      }
+      setSuggestions([]);
+      setSuggestionError("");
+      setIsSuggesting(false);
+      setHasSuggestions(false);
+      return;
+    }
+
+    searchTimeoutRef.current = setTimeout(async () => {
+      if (searchControllerRef.current) {
+        searchControllerRef.current.abort();
+      }
+      const controller = new AbortController();
+      searchControllerRef.current = controller;
+      setIsSuggesting(true);
+      setHasSuggestions(false);
+      setSuggestionError("");
+
       try {
-        setIsSuggesting(true);
-        setHasSuggestions(false);
-        setSuggestionError("");
-
         const response = await fetch(
-          `/api/meta/search?query=${encodeURIComponent(debouncedTicker)}`,
+          `/api/meta/search?query=${encodeURIComponent(trimmed)}`,
           {
             signal: controller.signal,
           }
@@ -72,16 +109,16 @@ const useDebouncedSearch = (ticker: string, delay: number = 500) => {
         setSuggestionError(errorMessage);
         setSuggestions([]);
         setHasSuggestions(false);
-        console.log(errorMessage);
       } finally {
         setIsSuggesting(false);
       }
+    }, delay);
+
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
     };
-
-    fetchSuggestions();
-  }, [debouncedTicker]);
-
-  return;
+  }, [ticker, pickedTicker]);
 };
-
 export default useDebouncedSearch;

@@ -4,7 +4,11 @@ import SuggestionError from "./SuggestionError";
 import SuggestionItem from "./SuggestionItem";
 import SuggestionNoResults from "./SuggestionNoResults";
 
-const SuggestionCard = () => {
+const SuggestionCard = ({
+  lastSelectedSymbolRef,
+}: {
+  lastSelectedSymbolRef: React.RefObject<string | null>;
+}) => {
   const {
     suggestions,
     pickedTicker,
@@ -28,6 +32,7 @@ const SuggestionCard = () => {
               <SuggestionItem
                 key={suggestion.sourceId}
                 suggestion={suggestion}
+                lastSelectedSymbolRef={lastSelectedSymbolRef}
               />
             ))
           )}
