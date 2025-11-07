@@ -1,8 +1,8 @@
 "use client";
 
 import PickedTickerMeta from "@/components/root/PickedTickerMeta";
+import GenerateReportButton from "@/components/root/generate-report/GenerateReportButton";
 import SuggestionCard from "@/components/root/suggestions/SuggestionCard";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   InputGroup,
@@ -10,13 +10,27 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import useDebouncedSearch from "@/lib/hooks/use-debounced-search";
+import useRootpageRefs from "@/lib/hooks/use-rootpage-refs";
 import useTickerStore from "@/lib/store/ticker-store";
 import { Search } from "lucide-react";
 
 export default function Home() {
   const { ticker, setTicker, pickedTicker } = useTickerStore();
 
-  useDebouncedSearch(ticker, 500);
+  const {
+    eventSourceRef,
+    smoothProgressRef,
+    searchControllerRef,
+    lastSelectedSymbolRef,
+    searchTimeoutRef,
+  } = useRootpageRefs();
+
+  useDebouncedSearch(
+    500,
+    searchControllerRef,
+    searchTimeoutRef,
+    lastSelectedSymbolRef
+  );
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-6 ">
@@ -41,12 +55,13 @@ export default function Home() {
             <InputGroupAddon>
               <Search />
             </InputGroupAddon>
-            <SuggestionCard />
+            <SuggestionCard lastSelectedSymbolRef={lastSelectedSymbolRef} />
           </InputGroup>
           {pickedTicker && <PickedTickerMeta />}
-          <Button className="w-full" disabled={!pickedTicker}>
-            Generate Report
-          </Button>
+          <GenerateReportButton
+            eventSourceRef={eventSourceRef}
+            smoothProgressRef={smoothProgressRef}
+          />
         </CardContent>
       </Card>
     </div>

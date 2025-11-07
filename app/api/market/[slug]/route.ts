@@ -43,6 +43,7 @@ export async function GET(
     }
 
     let points: { t: number; c: number; v?: number }[] = [];
+
     try {
       const ohlc = await fetchCoingeckoOhlc(slug);
       points = ohlc.map(([t, _o, _h, _l, c]) => ({ t, c }));
