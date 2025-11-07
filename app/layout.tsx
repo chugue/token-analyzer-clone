@@ -27,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{ userSelect: "text", overscrollBehavior: "none" }}
+        cz-shortcut-listen="true"
       >
         {children}
       </body>
