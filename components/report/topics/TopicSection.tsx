@@ -18,8 +18,8 @@ const TopicSection = ({ report }: { report: DetailedReport }) => {
           ))}
         </div>
       ) : (
-        <div className="text-center text-slate-400">
-          <p>토픽이 없습니다.</p>
+        <div className="rounded-2xl border border-slate-700/40 bg-slate-900/70 p-6 text-sm text-slate-300">
+          분석 가능한 토픽이 없습니다.
         </div>
       )}
     </section>

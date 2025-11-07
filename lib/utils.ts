@@ -64,3 +64,10 @@ export function formatCompactNumber(value?: number | null): string {
   }
   return value.toString();
 }
+
+export function formatNumber(value?: number | null): string {
+  if (value === null || value === undefined || Number.isNaN(value)) {
+    return "—";
+  }
+  return value.toLocaleString("ko-KR");
+}

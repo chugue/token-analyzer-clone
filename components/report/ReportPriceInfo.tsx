@@ -14,7 +14,7 @@ const ReportPriceInfo = ({ report }: { report: DetailedReport }) => {
 
   return (
     <div className="text-sm text-slate-400">
-      <div>업데이트 {new Date(report.createdAt).toLocaleString()}</div>
+      <div>업데이트 {new Date(report.createdAt).toLocaleString("ko-KR")}</div>
       <div className="mt-1 text-slate-300">
         현재가{" "}
         <span className="font-semibold text-slate-100">

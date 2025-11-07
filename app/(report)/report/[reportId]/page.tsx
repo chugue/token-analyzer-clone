@@ -6,6 +6,8 @@ import ReportLoading from "@/components/report/ReportLoading";
 import ReportNoResults from "@/components/report/ReportNoResults";
 import ReportSummaryBar from "@/components/report/ReportSummaryBar";
 import InsightsTabs from "@/components/report/insights/InsightsTabs";
+import TimelineSection from "@/components/report/topics/TimelineSection";
+
 import TopicSection from "@/components/report/topics/TopicSection";
 
 import useReportStore from "@/lib/store/report-store";
@@ -36,8 +38,9 @@ const ReportDetailPage = () => {
             <ReportHeroHeader report={report} />
             <InsightsTabs report={report} />
           </div>
-          <div className="mt-8 grid gap-6 lg:grid-cols-[3fr,2fr]">
+          <div className="mt-8 grid gap-6 grid-cols-[3fr_2fr]">
             <TopicSection report={report} />
+            <TimelineSection report={report} />
           </div>
         </div>
       )}
