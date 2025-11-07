@@ -21,7 +21,7 @@ const InsightsSnapshotPanel = ({ report }: { report: DetailedReport }) => {
       <div className="text-sm text-slate-300">
         {perplexity?.overview ?? "프로젝트 요약 정보가 제공되지 않았습니다."}
       </div>
-      {categories.length ?? (
+      {categories.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-2">
           {visCats.map((cat) => (
             <span
@@ -31,7 +31,7 @@ const InsightsSnapshotPanel = ({ report }: { report: DetailedReport }) => {
               {cat}
             </span>
           ))}
-          {categories.length > 3 ?? (
+          {categories.length > 3 && (
             <button
               type="button"
               className="text-xs font-semibold text-slate-200 hover:text-slate-100"
@@ -44,7 +44,7 @@ const InsightsSnapshotPanel = ({ report }: { report: DetailedReport }) => {
       )}
 
       <div className="mt-3 text-xs">
-        {coingeckoId ?? (
+        {coingeckoId && (
           <a href={`https://www.coingecko.com/en/coins/${coingeckoId}`}>
             Coingecko
           </a>
@@ -62,7 +62,7 @@ const InsightsSnapshotPanel = ({ report }: { report: DetailedReport }) => {
         </a>
         <br />
 
-        {website ?? (
+        {website && (
           <span className="ml-4 text-slate-400">
             공식 링크:{" "}
             <a
