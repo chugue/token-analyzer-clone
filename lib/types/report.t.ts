@@ -109,7 +109,7 @@ export type TweetData = SourceTweet;
 export interface DataStatus {
   hasData: boolean;
   reason?: string;
-  actionSuggestions: string[];
+  suggestions: string[];
 }
 
 export interface ReportCoverage {
@@ -160,3 +160,36 @@ export interface TopicTimelinePoint {
 }
 
 export type ReportStatus = "pending" | "processing" | "completed" | "error";
+
+export interface ReportRequest extends TrendingMeta {
+  modules: string[];
+  broadcast: BroadcastDirective;
+}
+
+export interface BroadcastDirective {
+  enabled: boolean;
+  channels: string[];
+  sendPhoto?: boolean;
+}
+
+export interface ReportResponse {
+  success: boolean;
+  reportId: string;
+  reportUrl: string;
+  totalInfluence: number;
+  topics: TopicSummary[];
+  broadcast: {
+    sent: boolean;
+    channels: string[];
+  };
+  acceptedMeta?: TrendingMeta;
+  resolvedMeta?: ResolvedMeta;
+  dataStatus?: DataStatus;
+  error?: string;
+}
+
+export interface TopicSummary {
+  title: string;
+  sentiment: "positive" | "negative" | "neutral";
+  influence: number;
+}
