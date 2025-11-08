@@ -21,3 +21,14 @@ export interface RawCoinEntry {
   name?: unknown;
   market_cap_rank?: unknown;
 }
+
+export interface MarketChartPoint {
+  timestamp: number;
+  price: number;
+  volume: number;
+}
+
+export interface MarketChartData {
+  points: MarketChartPoint[];
+  intervalMinutes: number;
+}
