@@ -1,5 +1,5 @@
 import { redis } from "../redis";
-import { HEAT_HIST_KEY, HEAT_STATS_KEY, HeatStats } from "../types/heat";
+import { HEAT_HIST_KEY, HEAT_STATS_KEY, HeatStats } from "../types/heat.t";
 
 export async function loadHeatStats(): Promise<HeatStats | null> {
   const histData = await redis.hgetall<Record<string, unknown>>(HEAT_HIST_KEY);

@@ -3,7 +3,7 @@ import {
   BroadcastChannelResult,
   BroadcastMessage,
   Broadcaster,
-} from "../types/broadcastring";
+} from "../types/broadcasting.t";
 
 export class TelegramBroadcaster implements Broadcaster {
   readonly name = "telegram";

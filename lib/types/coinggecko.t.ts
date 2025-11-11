@@ -32,3 +32,10 @@ export interface MarketChartData {
   points: MarketChartPoint[];
   intervalMinutes: number;
 }
+
+export type ChannelLocaleInfo = Map<string, "ko" | "en">;
+
+export interface BroadcastLocaleInfo {
+  hasEnglishChannel: boolean;
+  channelLocales: ChannelLocaleInfo;
+}

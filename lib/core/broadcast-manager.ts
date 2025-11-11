@@ -5,7 +5,7 @@ import {
   BroadcastRequest,
   BroadcastResult,
   Broadcaster,
-} from "../types/broadcastring";
+} from "../types/broadcasting.t";
 
 export class BroadcastManager {
   private broadcasters: Map<string, Broadcaster> = new Map();

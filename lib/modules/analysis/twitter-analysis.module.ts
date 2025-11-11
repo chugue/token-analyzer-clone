@@ -1,8 +1,8 @@
+import { BaseModule } from "../base-module";
 import {
   AnalysisParams,
   AnalysisResult,
 } from "../core/analysis-module.interface";
-import { BaseModule } from "./base-module";
 
 export class TwitterAnalysisModule extends BaseModule {
   readonly name = "twitter-topic-exraction";

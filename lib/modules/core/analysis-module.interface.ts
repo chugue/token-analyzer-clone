@@ -1,3 +1,5 @@
+import { GeneratedImage } from "@/lib/types/i2i-image.t";
+
 export interface AnalysisModule {
   readonly name: string;
   readonly version: string;
@@ -14,6 +16,7 @@ export interface AnalysisParams {
     startTime: Date;
     endTime: Date;
   };
+  locale?: "ko" | "en";
 }
 
 export interface AnalysisResult {
@@ -29,8 +32,8 @@ export interface AnalysisResult {
 }
 
 export interface ModuleData {
-  type: "twitter-topics" | "perplexity-summary" | "price-data";
-  content: unknown;
+  type: "twitter-topics" | "perplexity-summary" | "price-data" | "i2i-image";
+  content: unknown | GeneratedImage;
   influence?: number;
   timestamp: string;
   isEmpty?: boolean;

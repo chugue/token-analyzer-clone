@@ -1,5 +1,7 @@
+import { BroadcastLocaleInfo, ChannelLocaleInfo } from "../types/coinggecko.t";
 import {
   DetailedReport,
+  ReportRequest,
   TopicDetail,
   TopicTimelinePoint,
 } from "../types/report.t";
@@ -78,4 +80,31 @@ export async function requestReport(reportId: string): Promise<DetailedReport> {
   }
 
   return result.data as DetailedReport;
+}
+
+export function exractChannelLocaleInfo(
+  request: ReportRequest
+): BroadcastLocaleInfo | null {
+  if (!request.broadcast.enabled) return null;
+  if (request.broadcast.channels.length === 0) return null;
+
+  const channelLocales: ChannelLocaleInfo = new Map();
+  const channels = request.broadcast.channels;
+
+  for (const channel of channels) {
+    if (!channel.startsWith("telegram:")) return null;
+
+    const raw = channel.substring(9);
+    const locale = raw.split(":")[0];
+    const channelId = raw.split(":")[1];
+
+    if (!channelId) return null;
+
+    channelLocales.set(channelId, locale as "ko" | "en");
+  }
+
+  return {
+    hasEnglishChannel: [...channelLocales.values()].includes("en"),
+    channelLocales,
+  };
 }

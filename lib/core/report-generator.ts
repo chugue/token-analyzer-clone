@@ -3,6 +3,7 @@ import {
   fetchMarketChartData,
 } from "../helpers/coingecko-helpers";
 import { loadHeatStats } from "../helpers/heat-helpers";
+import { exractChannelLocaleInfo } from "../helpers/report-helpers.client";
 import {
   AnalysisParams,
   AnalysisResult,
@@ -96,46 +97,38 @@ export class ReportGenerator {
 
     const heatSamples: number[] = [];
 
-    let marketChart: { points: MarketChartPoint[]; intervalMinutes: number } = {
-      points: [],
-      intervalMinutes: 60,
-    };
+    const marketChart = await fetchHighResMarketChart24h(request.slug);
+    console.log("📈 High-res 24h market data loaded", {
+      points: marketChart.points.length,
+      intervalMinutes: marketChart.intervalMinutes,
+    });
 
-    try {
-      marketChart = await fetchHighResMarketChart24h(request.slug);
-      console.log("📈 High-res 24h market data loaded", {
-        points: marketChart.points.length,
-        intervalMinutes: marketChart.intervalMinutes,
-      });
-    } catch (e1) {
-      console.warn(
-        "⚠️ High-res 24h fetch failed, falling back to days endpoint:",
-        (e1 as Error).message
+    const longRange = await fetchMarketChartData(request.slug);
+    if (!longRange.points.length) {
+      throw new Error(
+        "Coingecko market chart returned no points for price snapshot"
       );
-
-      try {
-        marketChart = await fetchMarketChartData(request.slug);
-      } catch (e2) {
-        console.warn(
-          "⚠️ Coingecko 시장 데이터 조회 실패:",
-          (e2 as Error).message
-        );
-      }
     }
 
-    let priceSnapshot: PriceSnapshot | undefined;
+    const priceSnapshot: PriceSnapshot | undefined =
+      this.buildPriceSnapshotFromMarketChart(longRange.points);
+    console.log("📈 Price snapshot (7d source)", {
+      latest: priceSnapshot.latest,
+      change1hPct: priceSnapshot.change1hPct,
+      change3hPct: priceSnapshot.change3hPct,
+      change24hPct: priceSnapshot.change24hPct,
+      change3dPct: priceSnapshot.change3dPct,
+      change7dPct: priceSnapshot.change7dPct,
+      points: longRange.points.length,
+    });
 
-    try {
-      const lognRange = await fetchMarketChartData(request.slug);
-      if (lognRange.points.length > 0) {
-        priceSnapshot = this.buildPriceSnapshotFromMarketChart(
-          longRange.points
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    const i2iImgae: { buffer: Buffer; mimeType: string } | null = null;
+    const i2iImageEn: { buffer: Buffer; mimeType: string } | null = null;
+
+    const broadcastLocaleInfo = exractChannelLocaleInfo(request);
+    const generated = await generateI2IImage(request.symbol);
   }
+
   private buildPriceSnapshotFromMarketChart(
     points: MarketChartPoint[]
   ): PriceSnapshot {
@@ -153,7 +146,7 @@ export class ReportGenerator {
       );
     }
 
-    const calculateChange = (hors: number): number | undefined => {
+    const calculateChange = (hours: number): number | undefined => {
       if (!Number.isFinite(latest)) {
         return undefined;
       }
